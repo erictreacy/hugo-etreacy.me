@@ -1,9 +1,6 @@
 [build]
   publish = "public"
-  command = """
-    xcopy /E /I /Y static\\admin public\\admin
-    hugo --gc --minify
-    """
+  command = "hugo --gc --minify"
 
 [build.environment]
   HUGO_VERSION = "0.123.0"
