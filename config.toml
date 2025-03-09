@@ -1,67 +1,64 @@
 baseURL = "/"
-title = "Eric Treacy"
 languageCode = "en-us"
-
-# Enable all default features
-enableGitInfo = true
+title = "Eric Treacy"
 enableRobotsTXT = true
+enableGitInfo = true
 enableEmoji = true
+rssLimit = 20
+timeout = "60s"
+paginate = 10
+summaryLength = 70
+canonifyURLs = true
+enableInlineShortcodes = true
 
 [params]
-  description = "Personal website of Eric Treacy"
+  description = "Personal website of Eric Treacy - Software Engineer, Writer, and Photography Enthusiast"
+  author = "Eric Treacy"
+  keywords = ["software engineer", "writer", "photography", "blog", "technology", "personal website"]
+  images = ["/img/default-share.jpg"]
+  mainSections = ["writing", "projects", "photos"]
+  twitterHandle = "@erictreacy"
+  dateFormat = "January 2, 2006"
+  lastmod = true
+  readingTime = true
+  socialShare = true
+  showAuthor = true
 
-[build]
-  writeStats = true
-  
-[minify]
-  disableCSS = false
-  disableHTML = false
-  disableJS = false
-  disableJSON = false
-  disableSVG = false
-  disableXML = false
-  minifyOutput = true
-  [minify.tdewolff]
-    [minify.tdewolff.css]
-      keepCSS2 = true
-      precision = 1
-    [minify.tdewolff.html]
-      keepComments = false
-      keepConditionalComments = true
-      keepDefaultAttrVals = true
-      keepDocumentTags = true
-      keepEndTags = true
-      keepQuotes = false
-      keepWhitespace = false
-    [minify.tdewolff.js]
-      keepVarNames = false
-      precision = 1
-    [minify.tdewolff.json]
-      precision = 1
-    [minify.tdewolff.svg]
-      precision = 1
-    [minify.tdewolff.xml]
-      keepWhitespace = false
+[params.seo]
+  # Schema.org
+  schemaType = "Person"
+  schemaName = "Eric Treacy"
+  schemaLocale = "en-US"
+  schemaImage = "/img/default-share.jpg"
+  schemaImageWidth = 1200
+  schemaImageHeight = 630
+  # Open Graph
+  ogLocale = "en_US"
+  ogSiteName = "Eric Treacy"
+  ogType = "website"
+  # Twitter Cards
+  twitterCard = "summary_large_image"
+  twitterSite = "@erictreacy"
+  twitterCreator = "@erictreacy"
 
-[imaging]
-  anchor = "Smart"
-  bgColor = "#ffffff"
-  hint = "photo"
-  quality = 85
-  resampleFilter = "Lanczos"
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
 
-[server]
-  [[server.headers]]
-    for = "/**"
-    [server.headers.values]
-      Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self' https:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self';"
-      Referrer-Policy = "strict-origin-when-cross-origin"
-      X-Content-Type-Options = "nosniff"
-      X-Frame-Options = "DENY"
-      X-XSS-Protection = "1; mode=block"
+[permalinks]
+  writing = "/writing/:year/:month/:slug/"
+  projects = "/projects/:slug/"
+  photos = "/photos/:slug/"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "HEADERS", "SITEMAP"]
+  page = ["HTML"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   term = ["HTML", "RSS"]
@@ -70,21 +67,18 @@ enableEmoji = true
   [outputFormats.RSS]
     mediatype = "application/rss+xml"
     baseName = "feed"
-
-[caches]
-  [caches.getjson]
-    maxAge = "10s"
-  [caches.getcsv]
-    maxAge = "10s"
-  [caches.images]
-    dir = ":resourceDir/_gen"
-    maxAge = "24h"
-  [caches.assets]
-    dir = ":resourceDir/_gen"
-    maxAge = "24h"
-  [caches.modules]
-    dir = ":cacheDir/modules"
-    maxAge = "24h"
+  [outputFormats.HEADERS]
+    mediatype = "text/netlify"
+    baseName = "_headers"
+    isPlainText = true
+    notAlternative = true
+  [outputFormats.SITEMAP]
+    mediatype = "application/xml"
+    baseName = "sitemap"
+    isHTML = false
+    isPlainText = false
+    noUgly = true
+    rel = "sitemap"
 
 [markup]
   [markup.goldmark]
@@ -97,8 +91,12 @@ enableEmoji = true
       taskList = true
       typographer = true
     [markup.goldmark.parser]
-      attribute = true
       autoHeadingID = true
+      autoHeadingIDType = "github"
+      wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
     [markup.goldmark.renderer]
       hardWraps = false
       unsafe = false
@@ -106,13 +104,101 @@ enableEmoji = true
   [markup.highlight]
     codeFences = true
     guessSyntax = false
-    hl_Lines = ""
-    lineNoStart = 1
     lineNos = false
-    lineNumbersInTable = true
     noClasses = false
     tabWidth = 4
   [markup.tableOfContents]
     endLevel = 3
     ordered = false
     startLevel = 2
+
+[security]
+  [security.funcs]
+    getenv = ["^HUGO_"]
+  [security.http]
+    methods = ["(?i)GET|POST"]
+    urls = [".*"]
+
+[build]
+  writeStats = true
+  noJSConfigInAssets = true
+
+[server]
+  [[server.headers]]
+    for = "/**"
+    [server.headers.values]
+      X-Frame-Options = "DENY"
+      X-XSS-Protection = "1; mode=block"
+      X-Content-Type-Options = "nosniff"
+      Referrer-Policy = "strict-origin-when-cross-origin"
+
+[minify]
+  disableXML = false
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+      keepEndTags = true
+      keepQuotes = false
+    [minify.tdewolff.css]
+      keepCSS2 = true
+      precision = 0
+    [minify.tdewolff.js]
+      precision = 0
+      keepVarNames = false
+    [minify.tdewolff.json]
+      precision = 0
+    [minify.tdewolff.svg]
+      precision = 0
+    [minify.tdewolff.xml]
+      keepWhitespace = false
+
+[imaging]
+  quality = 85
+  anchor = "Smart"
+  resampleFilter = "Lanczos"
+  [imaging.exif]
+    disableDate = true
+    disableLatLong = true
+    excludeFields = ""
+    includeFields = ""
+
+[caches]
+  [caches.assets]
+    dir = ":resourceDir/_gen"
+    maxAge = "720h"
+  [caches.getcsv]
+    dir = ":cacheDir/:project"
+    maxAge = "720h"
+  [caches.getjson]
+    dir = ":cacheDir/:project"
+    maxAge = "720h"
+  [caches.images]
+    dir = ":resourceDir/_gen"
+    maxAge = "720h"
+  [caches.modules]
+    dir = ":cacheDir/modules"
+    maxAge = "720h"
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.120.0"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+  [[module.mounts]]
+    source = "data"
+    target = "data"

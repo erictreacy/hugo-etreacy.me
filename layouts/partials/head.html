@@ -1,55 +1,81 @@
-{{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
+{{ $style := resources.Get "css/main.css" | resources.PostCSS | minify | fingerprint "sha512" }}
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
-    
-    {{/* Favicon */}}
-    <link rel="icon" type="image/png" href="/icons/favicon.png">
-    <link rel="apple-touch-icon" href="/icons/favicon.png">
-    
-    {{/* CSS-doodle */}}
-    <script src="https://unpkg.com/css-doodle@0.34.9/css-doodle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+    <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="/icons/favicon-192x192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/favicon-192x192.png">
     
     {{/* Preload critical assets */}}
-    <link rel="preload" href="{{ $styles.RelPermalink }}" as="style">
-    {{ range .Site.Params.preloadFonts | default slice }}
-        <link rel="preload" href="{{ . }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ $style.RelPermalink }}" as="style" crossorigin="anonymous">
+    {{ if .IsHome }}
+    <link rel="preload" href="https://unpkg.com/css-doodle@0.34.9/css-doodle.min.js" as="script" crossorigin="anonymous">
     {{ end }}
     
     {{/* Critical CSS */}}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" {{ printf "integrity=%q" $styles.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous">
+    <style>
+    {{ $style.Content | safeCSS }}
+    </style>
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
     
-    {{/* Prefetch and preconnect */}}
+    {{/* DNS prefetch and preconnect */}}
     <link rel="dns-prefetch" href="//unpkg.com">
     <link rel="preconnect" href="//unpkg.com" crossorigin>
     
     {{/* Meta tags for SEO and social sharing */}}
-    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
-    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
+    <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
     <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    {{ with .Params.image }}
+    <meta property="og:image" content="{{ . | absURL }}">
+    {{ end }}
+    
+    {{/* Twitter Card */}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
+    <meta name="twitter:description" content="{{ .Description | default .Site.Params.description }}">
+    {{ with .Params.image }}
+    <meta name="twitter:image" content="{{ . | absURL }}">
+    {{ end }}
     
     {{/* PWA support */}}
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
     {{/* Security headers */}}
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self' https:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     
     {{/* Performance optimization */}}
-    {{ if not .Site.IsServer }}
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "WebSite",
-                "name": "{{ .Site.Title }}",
-                "url": "{{ .Site.BaseURL }}"
+    {{ if hugo.IsProduction }}
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "{{ .Site.Title }}",
+            "url": "{{ .Site.BaseURL }}",
+            "description": "{{ .Site.Params.description }}",
+            "author": {
+                "@type": "Person",
+                "name": "{{ .Site.Params.author }}"
             }
-        </script>
+        }
+    </script>
+    {{ end }}
+    
+    {{/* CSS-doodle */}}
+    {{ if .IsHome }}
+    <script src="https://unpkg.com/css-doodle@0.34.9/css-doodle.min.js" defer></script>
     {{ end }}
 </head>
