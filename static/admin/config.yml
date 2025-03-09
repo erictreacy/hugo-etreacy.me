@@ -2,10 +2,10 @@ backend:
   name: github
   repo: erictreacy/hugo-etreacy.me
   branch: hugo-migration
-  auth_endpoint: auth
-  base_url: https://api.netlify.com
+  base_url: https://polite-cocada-7d26e5.netlify.app
+  auth_endpoint: oauth
 
-media_folder: "static/reading" # Based on your memory about image storage
+media_folder: "static/reading"
 public_folder: "/reading"
 
 collections:
