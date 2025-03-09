@@ -26,14 +26,7 @@
 
   [plugins.inputs]
     output_path = "lighthouse-report.html"
-    budget = """
-    {
-      "performance": 90,
-      "accessibility": 90,
-      "best-practices": 90,
-      "seo": 90
-    }
-    """
+    thresholds = {performance = 90, accessibility = 90, "best-practices" = 90, seo = 90}
 
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
@@ -168,6 +161,11 @@
     public,
     max-age=0,
     must-revalidate'''
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
 
 [[redirects]]
   from = "/*"
