@@ -9,6 +9,9 @@
     <link rel="icon" type="image/png" href="/icons/favicon.png">
     <link rel="apple-touch-icon" href="/icons/favicon.png">
     
+    {{/* CSS-doodle */}}
+    <script src="https://unpkg.com/css-doodle@0.34.9/css-doodle.min.js"></script>
+    
     {{/* Preload critical assets */}}
     <link rel="preload" href="{{ $styles.RelPermalink }}" as="style">
     {{ range .Site.Params.preloadFonts | default slice }}
@@ -19,8 +22,8 @@
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" {{ printf "integrity=%q" $styles.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous">
     
     {{/* Prefetch and preconnect */}}
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="preconnect" href="//unpkg.com" crossorigin>
     
     {{/* Meta tags for SEO and social sharing */}}
     <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
@@ -33,6 +36,7 @@
     <meta name="theme-color" content="#ffffff">
     
     {{/* Security headers */}}
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://unpkg.com; object-src 'self'">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">

@@ -3,7 +3,7 @@ publish = "public"
 command = "hugo --gc --minify"
 
 [build.environment]
-HUGO_VERSION = "0.121.1"
+HUGO_VERSION = "0.123.6"
 HUGO_BASEURL = "/"
 
 [context.production.environment]
@@ -23,8 +23,11 @@ command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self' https:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self';"
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    Cache-Control = '''
+    public,
+    max-age=31536000'''
 
 [[headers]]
   for = "/*.jpg"
@@ -44,6 +47,20 @@ command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 [[headers]]
   for = "/*.js"
   [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = '''
+    public,
+    max-age=0,
+    must-revalidate'''
+
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
     Cache-Control = "public, max-age=31536000"
 
 [[redirects]]
