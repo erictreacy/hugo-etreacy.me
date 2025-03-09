@@ -5,6 +5,21 @@ command = "hugo --gc --minify"
 [build.environment]
 HUGO_VERSION = "0.123.6"
 HUGO_BASEURL = "/"
+HUGO_ENABLEGITINFO = "true"
+GO_VERSION = "1.21"
+
+[build.processing]
+skip_processing = false
+[build.processing.css]
+bundle = true
+minify = true
+[build.processing.js]
+bundle = true
+minify = true
+[build.processing.html]
+pretty_urls = true
+[build.processing.images]
+compress = true
 
 [context.production.environment]
 HUGO_ENV = "production"
@@ -28,26 +43,10 @@ command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
     Cache-Control = '''
     public,
     max-age=31536000'''
-
-[[headers]]
-  for = "/*.jpg"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "/*.png"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "/*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "/*.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    NEL = '''
+    {"report_to": "default", "max_age": 31536000, "include_subdomains": true}'''
+    Report-To = '''
+    {"group": "default", "max_age": 31536000, "endpoints": [{"url": "/_netlify/report"}]}'''
 
 [[headers]]
   for = "/*.html"
@@ -63,7 +62,63 @@ command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
     Content-Type = "application/manifest+json"
     Cache-Control = "public, max-age=31536000"
 
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.gif"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
+
+[[plugins]]
+package = "@netlify/plugin-lighthouse"
+
+[plugins.inputs]
+output_path = "lighthouse.html"
