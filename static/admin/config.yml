@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: erictreacy/hugo-etreacy.me
+  branch: hugo-migration
+  auth_endpoint: auth
+  base_url: https://api.netlify.com
 
 media_folder: "static/reading" # Based on your memory about image storage
 public_folder: "/reading"
