@@ -70,10 +70,16 @@
 
   [plugins.inputs]
     skipPatterns = [
-      "**/private/**"
+      "**/private/**",
+      "**/admin/**",
+      "**/404*"
     ]
     todoPatterns = []
     checkExternal = false
+    recursive = false
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
 
 [[headers]]
   for = "/*"
