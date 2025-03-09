@@ -46,6 +46,7 @@
     {{ end }}
     {{ $copy := resources.Get "js/copy.js" }}
     <script defer src="{{ $copy.RelPermalink }}"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body{{ if .IsHome }} class="home"{{ end }}>
     {{ if not .IsHome }}
@@ -127,6 +128,16 @@
                 e.target.update();
             }
         });
+
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
     </script>
 </body>
 </html>
