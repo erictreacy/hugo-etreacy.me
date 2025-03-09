@@ -1,0 +1,115 @@
+{{ define "main" }}
+<style>
+    body {
+        padding-top: 1.5rem;
+        max-width: 500px;
+    }
+
+    .h2 {
+        font-size: 1.5rem;
+        font-weight: thin;
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+    }
+
+    .border {
+        border: 4px double var(--etreacy-ui-colors-text);
+    }
+
+    .wrap {
+        margin: 0 auto;
+        max-width: 30rem;
+    }
+
+    .my0 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .mt3 {
+        margin-top: 3rem;
+    }
+
+    .mb2 {
+        margin-bottom: 2rem;
+    }
+
+    .mb3 {
+        margin-bottom: 3rem;
+    }
+
+    .p21 {
+        padding: 0 2rem;
+    }
+
+    .p2 {
+        padding: 1.5rem 1.5rem;
+    }
+</style>
+
+<main class="p2 mb2 border">
+    <h1 class="my0 mb3" style="padding: 0">{{ .Site.Title }}</h1>
+    
+    <a href="/about/" class="text_decoration_none" title="About" aria-label="Read more">
+        <css-doodle class="wrap center">
+            /*
+            If you're reading this message your browser does not support web components! Try using Google Chrome or Safari
+            for the full experience ; )
+            */
+            :doodle {
+                @grid: 7 / 36vmin;
+                perspective-origin:
+                    calc(var(--mx, 50) * 1%)
+                    calc(var(--my, 50) * 1%);
+            }
+
+            @size: 3px 35vmin;
+            @place-cell: center;
+            background: @pick(
+                #FF8206,#FF6501, #FF0903,#FFB703
+            );
+
+            --sy: @rand(-360deg, 360deg);
+            --sz: @rand(-360deg, 360deg);
+
+            animation: r 75s linear infinite;
+            transform: 
+                rotateY(var(--sy)) 
+                rotateZ(var(--sz));
+
+            @keyframes r {
+                to { transform:
+                    rotateY(calc(var(--sy) + 360deg))
+                    rotateZ(calc(var(--sz) + 360deg))
+                }
+            }
+        </css-doodle>
+    </a>
+
+    <div class="right mt3">
+        <small style="font-family: var(--sans)">Engineer based in<br> Marquette, Michigan</small>
+    </div>
+</main>
+
+<div class="p21 border" role="main">
+    <div class="h2">
+        {{ .Content }}
+    </div>
+</div>
+
+<script>
+    document.body.addEventListener('click', function(e) {
+        e.target.update && e.target.update();
+    });
+</script>
+{{ end }}
