@@ -1,0 +1,9 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Eric Treacy"
+
+[params]
+  description = "Personal website of Eric Treacy"
+
+[markup.goldmark.renderer]
+  unsafe = true
