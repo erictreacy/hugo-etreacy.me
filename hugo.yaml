@@ -1,0 +1,63 @@
+baseURL: https://etreacy.me/
+languageCode: en-us
+title: Eric Treacy
+enableRobotsTXT: true
+
+module:
+  mounts:
+    - source: assets
+      target: assets
+
+params:
+  description: The blog, projects, and internet propensity of Eric Treacy
+  keywords: [Eric Treacy, EricTreacy, ETreacy, etreacy, Web Developer, Marquette, Michigan, science, philosophy, blog, library, projects]
+  author: Eric Treacy
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/erictreacy"
+    - name: twitter
+      url: "https://twitter.com/erictreacy"
+    - name: email
+      url: "mailto:mail@etreacy.me"
+
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: false
+    noHl: false
+    style: ""
+    tabWidth: 4
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+
+assets:
+  css:
+    - home.css
+    - main.css
+    - reading.css
+    - writing.css
+    - about.css
+    - photos.css
+    - syntax.css
+    - 404.css
+    - projects.css
+  js:
+    # Removed doodle.js reference
+
+permalinks:
+  writing: /writing/:year/:month/:title/

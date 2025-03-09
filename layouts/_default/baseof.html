@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+    <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    <meta content=#fff name=theme-color>
+    <link rel="icon" href="/favicon/favicon.png" type="image/x-icon" />
+    {{ $style := resources.Get "css/main.css" }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    {{ $syntaxCss := resources.Get "css/syntax.css" }}
+    <link rel="stylesheet" href="{{ $syntaxCss.RelPermalink }}">
+    {{ if .IsHome }}
+    {{ $homeCss := resources.Get "css/home.css" }}
+    <link rel="stylesheet" href="{{ $homeCss.RelPermalink }}">
+    {{ end }}
+    {{ if eq .Section "writing" }}
+    {{ $writingCss := resources.Get "css/writing.css" }}
+    <link rel="stylesheet" href="{{ $writingCss.RelPermalink }}">
+    {{ end }}
+    {{ if eq .Section "reading" }}
+    {{ $readingCss := resources.Get "css/reading.css" }}
+    <link rel="stylesheet" href="{{ $readingCss.RelPermalink }}">
+    {{ end }}
+    {{ if eq .Section "projects" }}
+    {{ $projectsCss := resources.Get "css/projects.css" }}
+    <link rel="stylesheet" href="{{ $projectsCss.RelPermalink }}">
+    {{ end }}
+    {{ if eq .Section "about" }}
+    {{ $aboutCss := resources.Get "css/about.css" }}
+    <link rel="stylesheet" href="{{ $aboutCss.RelPermalink }}">
+    {{ end }}
+    {{ if eq .Section "photos" }}
+    {{ $photosCss := resources.Get "css/photos.css" }}
+    <link rel="stylesheet" href="{{ $photosCss.RelPermalink }}">
+    {{ end }}
+    {{ if eq .Kind "404" }}
+    {{ $notFoundCss := resources.Get "css/404.css" }}
+    <link rel="stylesheet" href="{{ $notFoundCss.RelPermalink }}">
+    {{ end }}
+    {{ if .IsHome }}
+    <script src="https://unpkg.com/css-doodle@0.34.8/css-doodle.min.js"></script>
+    {{ end }}
+    {{ $copy := resources.Get "js/copy.js" }}
+    <script defer src="{{ $copy.RelPermalink }}"></script>
+</head>
+<body{{ if .IsHome }} class="home"{{ end }}>
+    {{ if not .IsHome }}
+    <header>
+        <a href="/" role="banner">Eric Treacy</a>
+        <nav role="navigation">
+            <ul>
+                <li {{ if eq .Section "writing" }}class="active"{{ end }}><a href="/writing/">Writing</a></li>
+                <li {{ if eq .Section "projects" }}class="active"{{ end }}><a href="/projects/">Projects</a></li>
+                <li {{ if eq .Section "reading" }}class="active"{{ end }}><a href="/reading/">Reading</a></li>
+                <li {{ if eq .Section "photos" }}class="active"{{ end }}><a href="/photos/">Photos</a></li>
+                <li {{ if eq .Section "about" }}class="active"{{ end }}><a href="/about/">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+    {{ else }}
+    <main class="p2 mb2 border">
+        <h1 class="my0 mb3">{{ .Site.Title }}</h1>
+        
+        <a href="/about/" class="text_decoration_none" title="About" aria-label="Read more">
+            <css-doodle>
+                /* If you're reading this message your browser does not support web components! Try using Google Chrome or Safari for the full experience ; ) */
+                :doodle {
+                    @grid: 7 / min(42vmin, 320px);
+                    perspective-origin: calc(var(--mx, 50) * 1%) calc(var(--my, 50) * 1%);
+                }
+                @size: 3px min(42vmin, 320px);
+                @place-cell: center;
+                background: @pick(#1e3a8a, #1e40af, #1d4ed8, #2563eb, #3b82f6);
+                --sy: @rand(-360deg, 360deg);
+                --sz: @rand(-360deg, 360deg);
+                animation: r 75s linear infinite;
+                transform: rotateY(var(--sy)) rotateZ(var(--sz));
+                @keyframes r {
+                    to {
+                        transform: rotateY(calc(var(--sy) + 360deg)) rotateZ(calc(var(--sz) + 360deg));
+                    }
+                }
+            </css-doodle>
+        </a>
+
+        <div class="right mt3">
+            <small>Engineer based in<br> Marquette, Michigan</small>
+        </div>
+    </main>
+
+    <div class="p2 border" role="main">
+        <div class="h2">
+            {{ .Content }}
+        </div>
+    </div>
+    {{ end }}
+
+    <footer role="contentinfo">
+        Designed, written, and built by Eric Treacy. This site collects no data or analytics.
+        He can be distracted via good ol' fashioned <a href="mailto:mail@etreacy.me">E-mail</a>.
+        <br/>
+        It's currently year {{ now.Format "2006" }}.️
+        <br/><br/>
+        <div>✺ </div> 
+    </footer>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const doodle = document.querySelector('css-doodle');
+            if (doodle) {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+                doodle.style.setProperty('--mx', x);
+                doodle.style.setProperty('--my', y);
+            }
+        });
+
+        document.body.addEventListener('click', function(e) {
+            if (e.target.tagName.toLowerCase() === 'css-doodle') {
+                e.target.update();
+            }
+        });
+    </script>
+</body>
+</html>

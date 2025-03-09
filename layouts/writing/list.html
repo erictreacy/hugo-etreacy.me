@@ -1,0 +1,171 @@
+{{ define "main" }}
+<div class="p2" role="main">
+    <div class="h2">
+        <h1 class="my0 mb3">Writing</h1>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search posts by title or content..." aria-label="Search posts">
+        </div>
+        <div id="posts-container">
+        {{ range .Pages.ByDate.Reverse }}
+            <div class="post-row" data-title="{{ .Title | lower }}" data-content="{{ .Plain | lower }}">
+                <div>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>{{ .Date.Format "2006-01-02" }}</span>
+            </div>
+        {{ end }}
+        </div>
+        <div class="no-results" style="display: none;">No posts found</div>
+    </div>
+</div>
+
+<style>
+    .post-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0.25rem 0;
+        width: 100%;
+    }
+
+    .post-row span {
+        margin-left: 2rem;
+        flex-shrink: 0;
+        font-family: var(--sans);
+        font-size: 0.9rem;
+    }
+
+    .search-container {
+        margin: 2rem 0;
+        width: 100%;
+        max-width: 640px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border: 2px solid #eee;
+        border-radius: 4px;
+        font-family: var(--sans);
+        box-sizing: border-box;
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: var(--theme-ui-colors-primary);
+    }
+
+    .no-results {
+        padding: 1rem 0;
+        font-style: italic;
+        font-family: var(--sans);
+    }
+
+    .post-preview {
+        font-size: 0.9rem;
+        margin-top: 0.25rem;
+        display: none;
+        width: 100%;
+        font-family: var(--sans);
+    }
+
+    .highlight {
+        background-color: var(--theme-ui-colors-muted);
+        padding: 0 0.25rem;
+    }
+
+    @media (max-width: 600px) {
+        .post-row {
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.5rem 0;
+        }
+
+        .post-row span {
+            margin-left: 0;
+            font-size: 0.85rem;
+        }
+
+        .search-container {
+            margin: 1rem 0;
+        }
+
+        .search-input {
+            font-size: 0.9rem;
+            padding: 0.5rem;
+        }
+
+        .post-preview {
+            font-size: 0.85rem;
+        }
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.search-input');
+    const posts = document.querySelectorAll('.post-row');
+    const noResults = document.querySelector('.no-results');
+    
+    function highlightText(text, searchTerm) {
+        if (!searchTerm) return text;
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        return text.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    function getContentPreview(content, searchTerm, previewLength = 150) {
+        if (!searchTerm) return '';
+        
+        const lowerContent = content.toLowerCase();
+        const termIndex = lowerContent.indexOf(searchTerm);
+        
+        if (termIndex === -1) return '';
+        
+        let start = Math.max(0, termIndex - previewLength / 2);
+        let end = Math.min(content.length, termIndex + searchTerm.length + previewLength / 2);
+        
+        // Adjust to not cut words
+        while (start > 0 && content[start] !== ' ') start--;
+        while (end < content.length && content[end] !== ' ') end++;
+        
+        let preview = content.slice(start, end).trim();
+        if (start > 0) preview = '...' + preview;
+        if (end < content.length) preview = preview + '...';
+        
+        return highlightText(preview, searchTerm);
+    }
+    
+    searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        let hasResults = false;
+        
+        posts.forEach(post => {
+            const title = post.dataset.title;
+            const content = post.dataset.content;
+            const preview = post.querySelector('.post-preview');
+            const titleMatch = title.includes(searchTerm);
+            const contentMatch = content.includes(searchTerm);
+            
+            if (titleMatch || contentMatch) {
+                post.style.display = 'flex';
+                hasResults = true;
+                
+                // Show content preview if there's a content match
+                if (searchTerm && contentMatch) {
+                    preview.innerHTML = getContentPreview(content, searchTerm);
+                    preview.style.display = 'block';
+                } else {
+                    preview.style.display = 'none';
+                }
+            } else {
+                post.style.display = 'none';
+            }
+        });
+        
+        noResults.style.display = hasResults ? 'none' : 'block';
+    });
+});
+</script>
+{{ end }}

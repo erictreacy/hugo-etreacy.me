@@ -1,0 +1,184 @@
+/* Code Block Syntax Highlighting */
+.highlight {
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    overflow-x: auto;
+    position: relative;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+/* Copy Button */
+.highlight-copy {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    color: #3b82f6;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.6;
+}
+
+.highlight-copy:hover {
+    color: #3b82f6;
+    opacity: 1;
+}
+
+.highlight-copy.copied {
+    color: #16a34a;
+    opacity: 1;
+}
+
+.highlight pre {
+    margin: 0;
+}
+
+/* Background */ 
+.bg, .chroma {
+    color: #1f2937;
+    padding: 1rem;
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #64748b transparent;
+}
+
+.chroma::-webkit-scrollbar {
+    height: 8px;
+}
+
+.chroma::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chroma::-webkit-scrollbar-thumb {
+    background-color: #64748b;
+    border-radius: 4px;
+}
+
+/* Line Numbers */
+.chroma .lnt, .chroma .ln {
+    margin-right: 0.8em;
+    padding: 0 0.4em;
+    color: #64748b;
+    user-select: none;
+    position: sticky;
+    left: 0;
+    background: #f8fafc;
+}
+
+/* Line Highlight */
+.chroma .hl {
+    background-color: #eff6ff;
+}
+
+/* Keywords and Tags (Blue) */
+.chroma .k,
+.chroma .kc,
+.chroma .kd,
+.chroma .kn,
+.chroma .kp,
+.chroma .kr,
+.chroma .kt,
+.chroma .nt {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* Functions and Methods (Purple) */
+.chroma .nf,
+.chroma .na,
+.chroma .nx {
+    color: #9333ea;
+}
+
+/* Strings and Values (Orange) */
+.chroma .s,
+.chroma .sa,
+.chroma .sb,
+.chroma .sc,
+.chroma .dl,
+.chroma .sd,
+.chroma .s2,
+.chroma .sh,
+.chroma .si,
+.chroma .sx,
+.chroma .sr,
+.chroma .s1,
+.chroma .ss {
+    color: #ea580c;
+}
+
+/* Built-ins and Variables (Dark Blue) */
+.chroma .nb,
+.chroma .nv,
+.chroma .nc {
+    color: #1d4ed8;
+}
+
+/* Numbers (Black) */
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .il,
+.chroma .mo {
+    color: #171717;
+}
+
+/* Operators (Red) */
+.chroma .o,
+.chroma .ow {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* Comments (Gray) */
+.chroma .c,
+.chroma .ch,
+.chroma .cm,
+.chroma .c1,
+.chroma .cs,
+.chroma .cp,
+.chroma .cpf {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Generic Styles */
+.chroma .ge {
+    font-style: italic;
+}
+
+.chroma .gs {
+    font-weight: bold;
+}
+
+/* Punctuation (Gray) */
+.chroma .p {
+    color: #64748b;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .bg, .chroma {
+        font-size: 0.85rem;
+        padding: 0.75rem;
+    }
+    
+    .highlight {
+        margin: 1rem 0;
+    }
+    
+    .highlight-copy {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.7rem;
+    }
+}

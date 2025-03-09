@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Eric Treacy</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Eric Treacy</description>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An Epic COVID-19 Timeline</title>
+      <link>http://localhost:1313/posts/2020-12-23-covid-timeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-12-23-covid-timeline/</guid>
+      <description>Over this past year I have taken the time to catalog all of the most important information gained through this last year concerning the Sars-CoV-2 (COVID-19) virus. I have come to the conclusion that at no point in scientific history has there been a time where the whole world came together and pooled every bit of data that was know about something to rid it from the planet. In an interview with the renowned Immunologist, Pippa Marrack, she described the work of the science community much like that of the Eye of Sauron.</description>
+    </item>
+    <item>
+      <title>Art It Out</title>
+      <link>http://localhost:1313/posts/2020-11-24-art-it-out/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-11-24-art-it-out/</guid>
+      <description>It has been years since I have taken to art. Sure, there is writing and music, both of which I take frequent moments to practice and enjoy, but drawing and painting haven&amp;rsquo;t been my go-to choice for some time. I&amp;rsquo;ve mostly converted to writing CSS. But these days, however, I have found my love for tangible art again. I can&amp;rsquo;t take all the credit for my rekindling, it&amp;rsquo;s mostly due to my children&amp;rsquo;s affinity to it.</description>
+    </item>
+    <item>
+      <title>Dropping Google in 2019</title>
+      <link>http://localhost:1313/posts/2019-02-12-dropping-google-2019/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2019-02-12-dropping-google-2019/</guid>
+      <description>I decided to make this the year of leaving Google for everything personal. I had been thinking about dropping Google since 2016, but thought that it would be too much effort. Too much hassle. What about all those accounts that I use Gmail for?! As it turned out, it was just as easy as an easy thing to drop it all behind.
+I switched from Gmail to FastMail to start with for my mail and calendars.</description>
+    </item>
+    <item>
+      <title>Elizabeth Warren</title>
+      <link>http://localhost:1313/posts/2019-06-26-2019-elizabeth-warren/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2019-06-26-2019-elizabeth-warren/</guid>
+      <description>I will be voting for Elizabeth Warren in the Democratic Primary election. My modest donations will also be going to her campaign â€” and you should consider her for your choice in the Democratic Primary election, too.
+Elizabeth Warren
+Credit: Sharif Hamza
+The New York TimesMy choice is one of many factors: Student-Debt Relief, Higher-Education Reform, Universal Child Care, Ultra-Millionaire Tax, Real Corporate Profits Tax, Affordable Housing, Protecting Public Lands, Decreasing Maternal Mortality Rates, Protecting Abortion Rights, Climate &amp;amp; Environment, Immigration, etc.</description>
+    </item>
+    <item>
+      <title>I Don&#39;t Use Facebook</title>
+      <link>http://localhost:1313/posts/2020-12-21-i-dont-use-fb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-12-21-i-dont-use-fb/</guid>
+      <description>How can you tell if someone is a vegan? You don&amp;rsquo;t have to, they will tell you. I feel like not using Facebook is much the same joke. Itâ€™s easy to hate on Facebook, but it&amp;rsquo;s not easy to avoid using it. Not that I have anything against Facebook, per se. Many people do, though. I just don&amp;rsquo;t need to know what is going on all the time in the world.</description>
+    </item>
+    <item>
+      <title>I migrated my Cloud9 env to a new AWS Cloud9 env today</title>
+      <link>http://localhost:1313/posts/2019-06-13-cloud9-to-aws-cloud9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2019-06-13-cloud9-to-aws-cloud9/</guid>
+      <description>For my personal website at least. For some time I have been kinda worried about this:
+But not too worried. I use GitHub â€” I keep my code in there. I just had to open a new environment in AWS Cloud9 and git-clone my site. Then,
+$ bundle install$ bundle update$ jekyll serve --host $IP --port $PORT --baseurl &#39;&#39;Works.
+$ ^CLet&amp;rsquo;s just go for it.</description>
+    </item>
+    <item>
+      <title>Lately</title>
+      <link>http://localhost:1313/posts/2020-07-20-lately/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-07-20-lately/</guid>
+      <description>I like to think that I will be trying my best to make a â€˜latelyâ€™ post at least once every 1-2 months, depending on my life obligations. But keeping a log of my recent doings has been on my list of things I want to do. Such as listening to music and working with new software&amp;hellip;life, in general. Maybe I might even talk a little about working with new chemicals in the lab.</description>
+    </item>
+    <item>
+      <title>Lately</title>
+      <link>http://localhost:1313/posts/2020-08-19-lately/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-08-19-lately/</guid>
+      <description>Bob is the family cat. Or was. We had to put-him-down this last month due to organ failure. He was going on 17-years as a Himalayan. I met him when he was about 5 years. He was around for quite some time; you can do the math. We miss him. He now sits on our bookshelf in a little urn with this picture.
+ReactJS &amp;amp; Music Playing with ReactJS has been on my list of things to get to as-of-late.</description>
+    </item>
+    <item>
+      <title>Move On</title>
+      <link>http://localhost:1313/posts/2020-09-11-move-on/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-09-11-move-on/</guid>
+      <description>So much said
+This small space a bed
+Now plastic
+Instead
+Move on
+Wake
+Bake
+Fake
+Take
+Move on
+Life
+Strife
+Move on
+Repeat?
+Move on
+Retreat?
+&amp;hellip;
+Optating
+&amp;hellip;
+Move on</description>
+    </item>
+    <item>
+      <title>Navidad en el Hudson</title>
+      <link>http://localhost:1313/posts/2020-12-23-navidad-en-el-hudson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-12-23-navidad-en-el-hudson/</guid>
+      <description>That gray sponge!
+That sailor whose throat was just cut.
+That great river.
+Those dark boundaries of the breeze.
+That keen blade, my love, that keen blade.
+The four sailors wrestled with the world.
+With that sharp-edged world that all eyes see.
+With the world no one can know without horses.
+One, a hundred, a thousand sailors
+wrestling with the world of keen-edged velocities,
+unaware that the world
+was alone in the sky.</description>
+    </item>
+    <item>
+      <title>Playing with Numbers (COVID-19 data)</title>
+      <link>http://localhost:1313/posts/2020-04-07-covid-playing-with-numbers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-04-07-covid-playing-with-numbers/</guid>
+      <description>This report is provisional and subject to change. As public health investigations of individual cases continue,there will be corrections to the status and details of referred cases that result in changes to this data.This COVID-19 pandemic is a data scientistâ€™s dream (or an epidemiologistâ€™s stressor). Not given the circumstances of course, but the amount of data that people can personally relate to is like nothing we have ever seen.</description>
+    </item>
+    <item>
+      <title>Post-traumatic stress about my latest travel consumption</title>
+      <link>http://localhost:1313/posts/2019-08-16-post-vacation-ptsd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2019-08-16-post-vacation-ptsd/</guid>
+      <description>Horseshoe Bend
+Glen Canyon National Park
+Photo with my iPhone 5It doesn&amp;rsquo;t happen often, but sometimes I feel off: a couple/few times a year. I don&amp;rsquo;t feel bad, just off. Cloudy headed and mentally imbalanced. Sometimes confused and trying to find the words. Out of curiosity, I decided to write about it while I was experiencing it and see what I conclude.
+My mind is nebulous, and I feel slightly achy.</description>
+    </item>
+    <item>
+      <title>Rant test...1...2...3</title>
+      <link>http://localhost:1313/posts/2019-06-25-rant-test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2019-06-25-rant-test/</guid>
+      <description>I read and write a lot. Most days, I spend a small designated amount of time sifting through a handful of either paid or non-paid subscriptions. But, most often, that time is spent reading books or New Philosopher these days. I have a handful of subjects that interest me to no foreseeable end: technology, science, economics, environment are the main areas of interest with an emphasis on the environment.
+I don&amp;rsquo;t tend to do much output on this site because it takes a long time to produce a post.</description>
+    </item>
+    <item>
+      <title>Ruby</title>
+      <link>http://localhost:1313/posts/2020-12-22-ruby/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-12-22-ruby/</guid>
+      <description>I will be learning Ruby in the year 2021 and here is my project study site.
+It&amp;rsquo;s been some time since I have actually sat down and written programming code. I have been active in developing company websites, and my personal site, but that doesn&amp;rsquo;t involve a whole lot of programming, per se. Yes, code such as HTML, CSS, and some JS and SQL but not anything like C#, which I used to work with on a pretty regular basis.</description>
+    </item>
+    <item>
+      <title>Select Publication Contributions</title>
+      <link>http://localhost:1313/posts/2019-06-18-publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2019-06-18-publications/</guid>
+      <description>Stefanski, Adrianne L., Nadine Martinez, Lisa K. Peterson, Tiffany J. Callahan, Eric C. Treacy, Marisa Luck, Samantha F. Friend et al. &amp;ldquo;Murine trophoblast-derived and pregnancy-associated exosome-enriched extracellular vesicle microRNAs: Implications for placenta driven effects on maternal physiology.&amp;rdquo; PloS one 14, no. 2 (2019): e0210675.
+The role of extracellular vesicles (EVs), specifically exosomes, in intercellular communication likely plays a key role in placental orchestration of pregnancy and maternal immune sensing of the fetus.</description>
+    </item>
+    <item>
+      <title>The Meaning of Life</title>
+      <link>http://localhost:1313/posts/2019-01-03-meaning-of-life/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2019-01-03-meaning-of-life/</guid>
+      <description>An obsolete question.
+Have we not imbibed from our progenitors?
+Such a question is unfit.
+Rather I query: how amazing is it that life exists?!</description>
+    </item>
+    <item>
+      <title>Weathering the Cytokine Storm (SARS-CoV-2)</title>
+      <link>http://localhost:1313/posts/2020-03-24-covid-19/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-03-24-covid-19/</guid>
+      <description>March 26th, 2020
+The spread of COVID-19
+The New York TimesThe map above was taken March 26, 2020. You can download the updated county-level data for coronavirus cases in theUnited States from The New York Times on GitHub. They made the data open source and all the current coverage is free to the public.What a year this month has been. Today is my birthday and is the first day of the &amp;lsquo;stay-at-home&amp;rsquo; order for Michigan due to COVID-19.</description>
+    </item>
+    <item>
+      <title>XC Skiing</title>
+      <link>http://localhost:1313/posts/2021-10-13-xcski/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2021-10-13-xcski/</guid>
+      <description>I grew up playing hockey with my neighbor. Through our youth, we would play pond hockey every day there was good, even at times questionable, ice. I was quick and good with a stick and puck. I eventually went on to play club for my university. But, once I graduated undergrad, I didn&amp;rsquo;t play much hockey anymore. I am small and got tired of being hit around and getting injuries. I, instead, moved to Colorado where I picked up downhill skiing.</description>
+    </item>
+  </channel>
+</rss>

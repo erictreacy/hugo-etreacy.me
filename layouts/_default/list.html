@@ -1,0 +1,55 @@
+{{ define "main" }}
+<div class="p21" role="main">
+    <div class="h2">
+        <h1 class="my0 mb3">{{ .Title }}</h1>
+        {{ .Content }}
+        
+        {{ if eq .Section "writing" }}
+        <div class="posts">
+            {{ range .Pages.ByDate.Reverse }}
+            <article class="mb2">
+                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                <time>{{ .Date.Format "January 2, 2006" }}</time>
+                {{ if .Description }}
+                <p>{{ .Description }}</p>
+                {{ end }}
+            </article>
+            {{ end }}
+        </div>
+        {{ else if eq .Section "projects" }}
+        <div class="grid">
+            {{ range .Pages }}
+            <article class="mb2">
+                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                {{ if .Description }}
+                <p>{{ .Description }}</p>
+                {{ end }}
+            </article>
+            {{ end }}
+        </div>
+        {{ else if eq .Section "reading" }}
+        <div class="grid">
+            {{ range .Pages }}
+            <article class="mb2">
+                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                {{ if .Description }}
+                <p>{{ .Description }}</p>
+                {{ end }}
+            </article>
+            {{ end }}
+        </div>
+        {{ else }}
+        <div class="grid">
+            {{ range .Pages }}
+            <article class="mb2">
+                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                {{ if .Description }}
+                <p>{{ .Description }}</p>
+                {{ end }}
+            </article>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

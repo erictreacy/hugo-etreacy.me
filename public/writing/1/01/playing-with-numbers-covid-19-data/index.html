@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playing with Numbers (COVID-19 data) - Eric Treacy</title>
+    <meta name="description" content="The blog, projects, and internet propensity of Eric Treacy">
+    <meta name="keywords" content="Eric Treacy, EricTreacy, ETreacy, etreacy, Web Developer, Marquette, Michigan, science, philosophy, blog, library, projects">
+    <meta name="author" content="Eric Treacy">
+    <meta content=#fff name=theme-color>
+    <link rel="icon" href="/favicon/favicon.png" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="/css/main.css">
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/writing.css">
+    
+    
+    
+</head>
+<body>
+    
+    <header>
+        <a href="/" role="banner">Eric Treacy</a>
+        <nav role="navigation">
+            <ul>
+                <li class="active"><a href="/writing/">Writing</a></li>
+                <li ><a href="/projects/">Projects</a></li>
+                <li ><a href="/reading/">Reading</a></li>
+                <li ><a href="/photos/">Photos</a></li>
+                <li ><a href="/about/">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    
+    <main>
+        
+<article class="post">
+    <h1>Playing with Numbers (COVID-19 data)</h1>
+    <div class="post-content">
+        <style>
+table {
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 85%;
+    border: 1px solid #e5e5e5;
+    border-collapse: collapse
+}
+
+td,th {
+    padding: .25rem .5rem;
+    border: 1px solid #e5e5e5
+}
+
+th {
+    font-family: var(--sans);
+    text-align: left;
+    font-weight: normal
+}
+
+tbody tr:nth-child(odd) td,tbody tr:nth-child(odd) th {
+    background-color: #f9f9f9
+}
+.message {
+    font-size: .8rem;
+  padding: 16px;
+  margin-top: 32px;
+    background-color: var(--etreacy-ui-colors-muted);
+    border-radius: 4px;
+    border-left: 8px solid var(--etreacy-ui-colors-primary);
+}
+</style>
+<iframe title="Confirmed COVID-19 cases Upper Peninsula of Michigan" aria-label="Map" id="datawrapper-chart-Axbab" src="https://datawrapper.dwcdn.net/Axbab/36/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="480"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+</script>
+<div class="message">This report is provisional and subject to change.  As public health investigations of individual cases continue,
+there will be corrections to the status and details of referred cases that result in changes to this data.</div>
+<p>This COVID-19 pandemic is a data scientistâ€™s dream (or an <a href="//www.nature.com/articles/d41586-020-01003-6">epidemiologistâ€™s stressor</a>). Not given the circumstances of course, but the amount of data
+that people can personally relate to is like nothing we have ever seen. This is a time in which we are learning even more about ourselves: culture, science, morals, ethics, resources, etc. Data
+helps us understand those things and ourselves, more â€” and often, at times, it confuses us. I am often reminded of a famous researcher that I had the honor of working with saying,</p>
+<blockquote>
+<p><em>â€œThe more we learn the more we learn what we donâ€™t know.â€ â€” <a href="https://en.wikipedia.org/wiki/Philippa_Marrack">Pippa Marrack</a></em></p></blockquote>
+<p>Since I was a middle-schooler, I have loved playing with numbers and formulations. In college
+and through my whole career in biochemistry and mathematics, I have found joy in numbers and the
+accompanying visualizations. The data that is currently spewing out into the public has brought the
+urge to play like a grade schooler again.</p>
+<p>Though there is a lock-down on many things in the community, one might think that there is more
+time to play with these numbers but, my work is very much in demand, and the time I have to spend
+on side-projects has not increased. But I push on: for this project I have decided to follow the
+data of the Upper Peninsula of Michigan (mainly Marquette County) because it is a dataset that is
+manageable for me â€” as far as size goes. I can put a little time into this dataset because, fortunately,
+we donâ€™t have many cases up here <em>yet</em>.</p>
+<h3 id="where-is-the-data">Where is the data</h3>
+<p>Everywhere. Thatâ€™s the great thing. For this project though I have kept it to the <a href="https://www.cdc.gov/">C.D.C.</a>,
+<a href="https://www.michigan.gov/">The State of Michigan</a> and <a href="//nytimes.com">The New York Times</a> for up-to-date numbers.</p>
+<h3 id="where-to-map-the-data">Where to map the data?</h3>
+<p>There are lots of ways to map this data on the web: <a href="https://www.mapbox.com/">Mapbox</a>, <a href="//observablehq.com">Observable</a>, <a href="https://looker.com/">Looker</a>, <a href="https://plotly.com/">Plotly</a>, <a href="https://www.elastic.co/kibana">Kibana</a>, etc., just to name a few. But my tool of
+choice is typically <a href="https://www.datawrapper.de/">Datawrapper</a>. It is a solid framework that is easy and quick to use. <a href="https://driven-by-data.net/">Gregor Aisch</a>, a former graphics editor at
+The New York Times (2014-2017), now Co-Founder/CTO at Datawrapper helped create it and now helps maintain it.
+Their offices are in Berlin Germany. If you are new to data visualization and want to learn more, Datawrapper has a wonderful <a href="https://academy.datawrapper.de/">learning academy</a> to get you started.</p>
+<h3 id="how-often-do-i-update-the-data">How often do I update the data?</h3>
+<p>Data will be updated almost daily â€” depending on my personal responsibilities. As I said, I anticipate this project being
+low demand, so I should be able to update daily, with some new graphs added as/if time deems fit.</p>
+<h3 id="why-the-project">Why the project?</h3>
+<p>Why not? One reason though is that there isnâ€™t an analytical team here in the UP, that I know of, that is just looking at the UP. Yes, we are
+getting numbers but, having someone local (resident) that can help with the collection of data never hurts. Maybe some people will come across
+it and look at it and consider the risks a little more seriously.</p>
+<h3 id="but-the-main-reason">But, the main reason:</h3>
+<p>A <a href="https://cid.utexas.edu/sites/default/files/cid/files/covid-risk-maps_counties_4.3.2020.pdf?m=1585958755">new study</a> by disease modelers at the University of Texas at Austin gives an answer: Even counties with just a single reported case have more
+than 50 percent likelihood that a sustained, undetected outbreak â€” an epidemic â€” is already taking place.</p>
+<p>â€œI worry that many local officials are waiting until there is clear evidence of local transmission before taking action,â€ said Lauren Ancel Meyers, a professor of biology and statistics at the university. â€œThe message is, we should not wait.â€</p>
+<p>Overall, the study finds, 70 percent of all counties in the United States â€” making up 94 percent of the country&rsquo;s population â€” are likely to have epidemics. The study defines an epidemic as an outbreak that grows exponentially instead of fading out on its own, eventually infecting a large number of the population.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Known cases in a county</th>
+          <th>Probability of community transmission (Epidemic)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>9%</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>51%</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>70%</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>79%</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>84%</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>85%</td>
+      </tr>
+      <tr>
+          <td>10</td>
+          <td>95%</td>
+      </tr>
+      <tr>
+          <td>20</td>
+          <td>99%</td>
+      </tr>
+      <tr>
+          <td>43+</td>
+          <td>100%</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="playing-the-numbers">Playing the numbers</h3>
+<p>I am both happy and disappointed with my community during this pandemic. First, I have written about the <a href="/2020/03/24/COVID-19/">silver-lining</a>,
+which I still feel is great. Second, however, I have seen more people that arenâ€™t part of my neighborhood wondering around
+the <a href="https://www.mtbproject.com/directory/8011499/marquette-south-trails">Marquette South Trails</a> and trail heads in general â€” people are congregating in herds there. People are moving to other
+areas of the community to play â€” opening a higher probability of transmission. Stay home. You can even see the movement
+of the people in <a href="https://www.nytimes.com/interactive/2020/04/02/us/coronavirus-social-distancing.html">Marquette county according to an analysis of cellphone location data by <em>The New York Times</em></a> â€” even after
+the March 27th, 2020 â€˜Stay-at-home&rsquo; order! It finally took Marquette city to put out an order that <a href="https://www.miningjournal.net/news/coronavirus/2020/04/all-city-of-marquette-parks-closed-effective-immediately/">â€œAll city of Marquette
+parks closed effective immediatelyâ€</a> to slow people down. We should know better given that it has already been presented to
+us on April 2nd that we had an 85% probability of community transmission (epidemic) knocking on our doorstep. Now, April 7th, 2020,
+that probability has risen to 95-99% according to disease modelers at the University of Texas at Austin saying: Even counties with
+just a single reported case have more than 50 percent likelihood that a sustained, undetected outbreak â€” an epidemic â€” is already taking place.
+Remember, <a href="https://www.medrxiv.org/content/10.1101/2020.02.14.20023127v1">COVID-19 is largely spreading undetected, because of the high proportion of asymptomatic, mild infections and limited laboratory testing</a>.</p>
+<p>We are already in an epidemic in Marquette county. Stay home. Stay safe. Remember, that means keeping others safe, too.</p>
+<blockquote>
+<p>Solitude, a simple den, <br>
+A piece of paper and a pen, <br>
+A cup of tea, a piece of toast. <br>
+A window and the holy ghost. <br>
+Some calm, a table and a chair; <br>
+The mind is free, the soul is bare.<br>
+There&rsquo;s love to make and life to hold.<br>
+The ancient tiny thread of gold<br>
+That runs through all the joy and gloom<br>
+Is found inside this tiny room.<br>
+<br>
+— Michael Leunig</p></blockquote>
+
+    </div>
+    
+</article>
+
+    </main>
+    
+
+    <footer role="contentinfo">
+        Designed, written, and built by Eric Treacy. This site collects no data or analytics.
+        He can be distracted via good ol' fashioned <a href="mailto:mail@etreacy.me">E-mail</a>.
+        <br/>
+        It's currently year 2025.️
+        <br/><br/>
+        <div>✺ </div> 
+    </footer>
+
+    <script>
+        document.body.addEventListener('click', function(e) {
+            e.target.update && e.target.update();
+        })
+    </script>
+</body>
+</html>

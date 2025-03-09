@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing - Eric Treacy</title>
+    <meta name="description" content="Blog posts and articles">
+    <meta name="keywords" content="Eric Treacy, EricTreacy, ETreacy, etreacy, Web Developer, Marquette, Michigan, science, philosophy, blog, library, projects">
+    <meta name="author" content="Eric Treacy">
+    <meta content=#fff name=theme-color>
+    <link rel="icon" href="/favicon/favicon.png" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    
+    <link rel="stylesheet" href="/css/writing.css">
+    
+    
+    
+    
+    
+    
+    
+    
+    <script defer src="/js/copy.js"></script>
+</head>
+<body>
+    
+    <header>
+        <a href="/" role="banner">Eric Treacy</a>
+        <nav role="navigation">
+            <ul>
+                <li class="active"><a href="/writing/">Writing</a></li>
+                <li ><a href="/projects/">Projects</a></li>
+                <li ><a href="/reading/">Reading</a></li>
+                <li ><a href="/photos/">Photos</a></li>
+                <li ><a href="/about/">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+<div class="p2" role="main">
+    <div class="h2">
+        <h1 class="my0 mb3">Writing</h1>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search posts by title or content..." aria-label="Search posts">
+        </div>
+        <div id="posts-container">
+        
+            <div class="post-row" data-title="syntax highlighting examples" data-content="this post demonstrates syntax highlighting for various programming languages using our custom theme.
+python 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 def fibonacci(n: int) -&amp;gt; list[int]: &amp;#34;&amp;#34;&amp;#34;generate fibonacci sequence up to n numbers.&amp;#34;&amp;#34;&amp;#34; sequence = [0, 1] while len(sequence) &amp;lt; n: sequence.append(sequence[-1] &#43; sequence[-2]) return sequence # example usage with type hints and docstring class dataprocessor: def __init__(self, data: list[str]): self.data = data self._processed = false def process(self) -&amp;gt; dict[str, int]: result = {} for item in self.data: result[item] = result.get(item, 0) &#43; 1 self._processed = true return result javascript 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 // modern javascript with async/await and es6&#43; features const fetchuserdata = async (userid) =&amp;gt; { try { const response = await fetch(`/api/users/${userid}`); const data = await response.json(); return { ...data, lastfetched: new date().toisostring() }; } catch (error) { console.error(`error fetching user ${userid}:`, error); throw new error(&amp;#39;failed to fetch user data&amp;#39;); } }; // react component example function userprofile({ userid, theme = &amp;#39;light&amp;#39; }) { const [user, setuser] = usestate(null); const [loading, setloading] = usestate(true); useeffect(() =&amp;gt; { fetchuserdata(userid) .then(data =&amp;gt; setuser(data)) .finally(() =&amp;gt; setloading(false)); }, [userid]); return ( &amp;lt;div classname={`profile-container ${theme}`}&amp;gt; {loading ? &amp;lt;loadingspinner /&amp;gt; : &amp;lt;userdetails user={user} /&amp;gt;} &amp;lt;/div&amp;gt; ); } sql 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 with monthly_sales as ( select date_trunc(&amp;#39;month&amp;#39;, order_date) as month, product_category, sum(amount) as total_sales, count(distinct customer_id) as unique_customers from orders join products on orders.product_id = products.id where order_date &amp;gt;= current_date - interval &amp;#39;12 months&amp;#39; group by 1, 2 ) select month, product_category, total_sales, unique_customers, lag(total_sales) over ( partition by product_category order by month ) as previous_month_sales, round( (total_sales - lag(total_sales) over ( partition by product_category order by month )) / lag(total_sales) over ( partition by product_category order by month ) * 100, 2 ) as growth_percentage from monthly_sales order by month desc, total_sales desc; html &amp;amp; css 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 &amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;responsive layout example&amp;lt;/title&amp;gt; &amp;lt;style&amp;gt; :root { --primary-color: #2563eb; --text-color: #1f2937; --background: #f8fafc; } .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem; max-width: 1200px; margin: 0 auto; } .card { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); transition: transform 0.2s ease; } .card:hover { transform: translatey(-4px); } @media (max-width: 600px) { .container { grid-template-columns: 1fr; padding: 1rem; } } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div class=&amp;#34;container&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;card&amp;#34;&amp;gt; &amp;lt;h2&amp;gt;responsive card&amp;lt;/h2&amp;gt; &amp;lt;p&amp;gt;this card adapts to different screen sizes.&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; go 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 package main import ( &amp;#34;context&amp;#34; &amp;#34;log&amp;#34; &amp;#34;time&amp;#34; ) type cacheitem struct { value interface{} expiration time.time } type cache struct { items map[string]cacheitem } func newcache() *cache { return &amp;amp;cache{ items: make(map[string]cacheitem), } } func (c *cache) set(key string, value interface{}, ttl time.duration) { c.items[key] = cacheitem{ value: value, expiration: time.now().add(ttl), } } func (c *cache) get(key string) (interface{}, bool) { item, exists := c.items[key] if !exists { return nil, false } if time.now().after(item.expiration) { delete(c.items, key) return nil, false } return item.value, true } func (c *cache) startcleanup(ctx context.context, interval time.duration) { ticker := time.newticker(interval) go func() { for { select { case &amp;lt;-ctx.done(): ticker.stop() return case &amp;lt;-ticker.c: now := time.now() for key, item := range c.items { if now.after(item.expiration) { delete(c.items, key) } } } } }() } each code block demonstrates different aspects of syntax highlighting:
+comments and docstrings keywords and control structures string literals and numbers function and class definitions special syntax (async/await, decorators, etc.) long lines that demonstrate horizontal scrolling nested code blocks and indentation the highlighting adapts to your screen size while maintaining readability and proper overflow handling.
+">
+                <div>
+                    <a href="/writing/2025/03/syntax-highlighting-examples/">Syntax Highlighting Examples</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2025-03-09</span>
+            </div>
+        
+            <div class="post-row" data-title="xc skiing" data-content="i grew up playing hockey with my neighbor. through our youth, we would play pond hockey every day there was good, even at times questionable, ice. i was quick and good with a stick and puck. i eventually went on to play club for my university. but, once i graduated undergrad, i didn&amp;rsquo;t play much hockey anymore. i am small and got tired of being hit around and getting injuries. i, instead, moved to colorado where i picked up downhill skiing. it was a bit of a learning curve but, i eventually picked it up. then, i moved to the upper peninsula of michigan where cross-country skiing is the thing to do. there is plenty of hockey and downhill skiing but, i have taken to xc skiing mostly. great cardio and easier on the knees. it&amp;rsquo;s one of my main cardio workouts during the snow weeks.
+during the clear-street days, i ride my bike or run. i don&amp;rsquo;t typically use the car unless i need to carry mounds of stuff and the kids (family) around. but, when those streets get covered, i switch to the skis — and, i glide.
+after work at least once a week i go to my favorite spot to ski, which these days is blueberry ridge pathway. it is one of the upper peninsula’s most popular xc ski trails. named for the area’s jack pine forest blueberry patches, it&amp;rsquo;s home to 13.67 miles of hiking and groomed xc skiing trails, including 1.7 miles of lighted trails for night skiing. plus, you can also bust out the backcountry skis and have a ball as well. there is a warming hut managed by the superiorland ski club. the trail is groomed annually from december 1 through march 31, weather permitting of course. grooming updates are posted to both the blueberry ridge ski pathway facebook group and on twitter @mistateparks. i don&amp;rsquo;t use facebook much, so i have to just go check it out and watch the weather.
+gear over the past handful of years, i have found myself going through different setups for xc skiing. my family, last christmas, got me a great set up and that is what i am still using today. even as i write this, i am planning to go for a ski in the early evening. most of the time this would require a headlamp but, as i mentioned above, this trail is lit during particular months of the year so, all i need to do is get there.
+![/data/images/rossignol-zymax-skating.png](/data/images/rossignol-zymax-skating.png)rossignol zymax sk180
+a fun intermediate ski.i use rossignol zymax sk180. with my comfy boots and poles, i can make quick work of the mileage. but that&amp;rsquo;s not why i go out. i go out for the pure fun of it. it takes me back to the days that i loved as a kid skating around the pond. the swift move around the forest; the sounds of nature; and meeting new people along the way. blueberry patch gets kind of busy in the winter months but, busy it not actually busy. i see maybe a few people in the 2-3 hours that i am out. mostly around the warming hut area. that&amp;rsquo;s where i sit after my outing and sip my hot chocolate.
+cheers to a fulfilling ski season ahead!
+some of my tunes:
+terms of surrender by hiss golden messenger">
+                <div>
+                    <a href="/writing/2021/10/xc-skiing/">XC Skiing</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2021-10-13</span>
+            </div>
+        
+            <div class="post-row" data-title="navidad en el hudson" data-content="that gray sponge!
+that sailor whose throat was just cut.
+that great river.
+those dark boundaries of the breeze.
+that keen blade, my love, that keen blade.
+the four sailors wrestled with the world.
+with that sharp-edged world that all eyes see.
+with the world no one can know without horses.
+one, a hundred, a thousand sailors
+wrestling with the world of keen-edged velocities,
+unaware that the world
+was alone in the sky. the world alone in the lonely sky.
+hills of hammers and the thick grass&amp;rsquo;s triumph.
+teeming anthills and coins in the mire.
+the world alone in the lonely sky,
+and the air where all the villages end. the earthworm sand its terror of the wheel,
+and the sailor whose throat was slashed
+sang to the water-bear that held him close;
+and they were all singing alleluia,
+alleluia. deserted sky.
+it&amp;rsquo;s all the same â€” the same! â€” alleluia. i stood all night on the scaffolding in the boroughs,
+leaving my blood on the stucco projects,
+helping the sailors lower their ripped sails,
+and i stand with empty ands in the murmur of the river&amp;rsquo;s mouth.
+it doesn&amp;rsquo;t matter if every minute
+a newborn child waves the little branches of its veins,
+of if a newborn viper, set free beneath the branches,
+calms the blood lust of those who looks at the nude.
+what matter is this: emptied space. lonely world. river&amp;rsquo;s mouth.
+not dawn. idle fable.
+this alone: river&amp;rsquo;s mouth.
+oh, my gray sponge!
+oh, my throat just cut open!
+oh, my great river!
+oh, my breeze&amp;rsquo;s boundaries that are not mine!
+oh, the keep blade of my love, oh, the cutting blade!
+federico garcia lorca poet in new york
+new york, december 27, 1929
+">
+                <div>
+                    <a href="/writing/2020/12/navidad-en-el-hudson/">Navidad en el Hudson</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-12-23</span>
+            </div>
+        
+            <div class="post-row" data-title="an epic covid-19 timeline" data-content=" over this past year i have taken the time to catalog all of the most important information gained through this last year concerning the sars-cov-2 (covid-19) virus. i have come to the conclusion that at no point in scientific history has there been a time where the whole world came together and pooled every bit of data that was know about something to rid it from the planet. in an interview with the renowned immunologist, pippa marrack, she described the work of the science community much like that of the eye of sauron.
+obviously there is much more data out there that can be found and you can read that on nature where they wade through the literature on the new coronavirus â€” and summarizes key papers as they appear. this timeline is my compilation of information read via the new york times, science magazine and nature publications, et al.
+covid-19 timeline date policy &amp;amp; public health findings papers 12/31/2019 health officials in wuhan, china, report a cluster of mysterious pneumonia cases 01/08/2020 a novel coronavirus is publicly identified as the source of the outbreak 01/10/2020 genetic sequence posted to virological.org 01/20/2020 human-to-human transmission confirmed 01/23/2020 wuhan lockdown begins the novel coronavirus is 96.2% similar to a virus in bats. 01/24/2020 - a novel coronavirus from patients with pneumonia in china, 2019- new england journal of medicine*
+- clinical features of patients infected with 2019 novel coronavirus in wuhan, china - the lancet 01/30/2020 who declares the outbreak a public health emergency of international concern 02/03/2020 - a pneumonia outbreak associated with a new coronavirus of probable bat origin - nature
+- a new coronavirus associated with human respiratory disease in china - nature 02/05/2020 diamond princess cruise ship begins its 2-week quarantine 02/11/2020 the virus gets its name 02/15/2020 age, hypertension, diabetes, heart disease, and male sex are all confirmed as risk factors for severe disease. 02/17/2020 widespread undocumented infection led to the rapid spread of covid-19 02/19/2020 scientists image the atomic-level structure of the spike protein 02/23/2020 first major european outbreak in italy 03/11/2020 who declares the coronavirus outbreak a pandemic 03/16/2020 moderna and cansino vaccine trials launch imperial college london model suggests health care systems will be overwhelmed. 03/26/2020 new york city becomes the epicenter of the u.s. outbreak widespread viral rna in hospital rooms suggests airborne transmission. 03/28/2020 u.s. regulators issue emergency use authorization (eua) for hydroxychloroquine 04/01/2020 covid-19 can damage multiple organ systems, including the heart, blood vessels, kidneys, and brain 04/03/2020 u.s. public health officials suggest people wear cloth masks respiratory virus shedding in exhaled breath and efficacy of face masks - nature medicine 04/13/2020 04/15/2020 temporal dynamics in viral shedding and transmissibility of covid-19 - nature medicine 04/19/2020 first evidence that a covid-19 vaccine can protect monkeys 04/24/2020 asymptomatic carriers play a large role in covid-19 transmission 04/27/2020 remdesivir reduces hospital stays in severely ill patients 05/01/2020 u.s. regulators issue eua for remdesivir. 05/15/2020 operation warp speed vaccine project launches 05/22/2020 projecting the transmission dynamics of sars-cov-2 through the postpandemic period - science 06/03/2020 a randomized trial of hydroxychloroquine as postexposure prophylaxis for covid-19 - new england journal of medicine 06/04/2020 major medical journals retract coronavirus papers over fabricated data 06/05/2020 hydroxychloroquine does not reduce death in hospitalized patients 06/08/2020 - the effect of large-scale anti-contagion policies on the covid-19 pandemic - nature
+- estimating the effects of non-pharmaceutical interventions on covid-19 in europe - nature 06/11/2020 spread of sars-cov-2 in the icelandic population - new england journal of medicine 06/15/2020 u.s. regulators revoke eua for hydroxychloroquine 06/16/2020 dexamethasone reduces fatality by up to one-third in hospitalized patients. 06/20/2020 retractionâ€”hydroxychloroquine or chloroquine with or without a macrolide for treatment of covid-19: a multinational registry analysis - the lancet 07/06/2020 united states sends a formal notice of withdrawal from who 07/09/2020 early studies hint at the lingering symptoms of â€œlong covidâ€ 08/15/2020 high sars-cov-2 attack rate following exposure at a choir practice â€” skagit county, washington, march 2020 - morbidity &amp;amp; mortality weekly report 08/25/2020 first confirmed case of reinfection coronavirus disease 2019 (covid-19) re-infection by a phylogenetically distinct severe acute respiratory syndrome coronavirus 2 strain confirmed by whole genome sequencing - clinical infectious diseases 09/02/2020 association between administration of systemic corticosteroids and mortality among critically ill patients with covid-19 - jama 09/09/2020 two-thirds of countries have joined covax, an international vaccine distribution effor 09/15/2020 high sars-cov-2 attack rate following exposure at a choir practice â€” skagit county, washington, march 2020 - morbidity &amp;amp; mortality weekly report 09/24/2020 up to 14% of severe cases are linked to genetic factors 09/25/2020 coronavirus disease 2019 (covid-19) re-infection by a phylogenetically distinct severe acute respiratory syndrome coronavirus 2 strain confirmed by whole genome sequencing - clinical infectious diseases 10/21/2020 europe and the united states confront their second and third waves 11/09/2020 pfizer and biontech announce vaccine efficacy above 90% 11/16/2020 moderna reveals vaccine efficacy nearing 95% immunological memory to sars-cov-2 assessed for greater than six months after infection - biorxiv 11/23/2020 astrazeneca reports vaccine efficacy between 62% and 90% 11/24/2020 russiaâ€™s gamaleya institute reports vaccine efficacy of 91.4% 12/02/2020 u.k. regulators are the first to authorize the pfizer-biontech covid-19 vaccine 12/09/2020 china national biotec group vaccine has 86% efficacy, according to uae health ministry 12/14/2020 u.s. health care workers begin to receive pfizer vaccine ">
+                <div>
+                    <a href="/writing/2020/12/an-epic-covid-19-timeline/">An Epic COVID-19 Timeline</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-12-23</span>
+            </div>
+        
+            <div class="post-row" data-title="ruby" data-content=" i will be learning ruby in the year 2021 and here is my project study site.
+it&amp;rsquo;s been some time since i have actually sat down and written programming code. i have been active in developing company websites, and my personal site, but that doesn&amp;rsquo;t involve a whole lot of programming, per se. yes, code such as html, css, and some js and sql but not anything like c#, which i used to work with on a pretty regular basis. it&amp;rsquo;s been about six years i would say, about the time my wife and i moved to marquette from denver and started a family. that went fast!
+i think about programming often though. i miss it. mostly, i miss a good math problem. since kindergarten, i have been in class doing math. all through my college years, i took math courses. it wasn&amp;rsquo;t until i graduated that my frequent excursions with math were not-so-daily. simple math, yes, but nothing to rack my brain about. that&amp;rsquo;s why i went into programming eventually. i like puzzles. and, it reminded me of my ti-89.
+i think about how i want to play again. do the logic and math again. but, i didn&amp;rsquo;t want to work towards setting up my computer with visual studio or the like. i didn&amp;rsquo;t want to set up mssql database server or anything. i did, however, want to learn a new language and be able to set up an environment pretty effortlessly. today&amp;rsquo;s cloud computer can handle that, right? oh, and do it in a web browser!
+over the past 5 years or so, i have found that i enjoy developing things in aws cloud9, i don&amp;rsquo;t have to spend time configuring all the time. everything is pretty much what i need and where i need it. i can start up an environment and install a few things and i&amp;rsquo;m good to go. but, even that takes some time. so, in order to learn my new chosen language, i looked around for a while and finally landed on repl.it. it is a ridiculously fast set up and cheap and in the browser. plus, it easily lets me run ruby. that&amp;rsquo;s what i&amp;rsquo;m starting to work on, and 2021 is that year i&amp;rsquo;m going to use to learn it.
+finding some inspiration i recall at some point coming across _why? and ruby and it has stuck with me since. ruby was a language that i had always wanted to learn in college but had typically found business application work with visual studio asp.net mvc c# instead. this is fine, but now that i tend to spend my waking working days in a lab, i can prioritize my learning curriculum, and finding inspiration is typically needed. so i found poignant guide. i won&amp;rsquo;t write more about this other than he was a figure that i used to follow back in the early 2000s. then he disappeared. but, luckily mislav marohniä‡ was able to save some of his work, which rekindled my desire to play with ruby.
+making a study routine there are a few places that i will be utilizing while i learn. first, i need an ide. that&amp;rsquo;s where repl.it comes in. i can set up a ruby environment and keep my study logs in there. the only thing that i don&amp;rsquo;t like about repl.it is that it doesn&amp;rsquo;t support pry, which is a runtime developer console and irb alternative with powerful introspection capabilities. pry is a powerful alternative to the standard irb shell for ruby. it features syntax highlighting, a flexible plugin architecture, runtime invocation, and source and documentation browsing.
+1 2 3 gem install pry gem install pry-doc gem install pry-byebug so, even though i will be using repl.it for some simple examples, i will be using cloud9 for the majority of my heavy work since it does support pry and then just push to github to store the git version history.
+i will also be taking advantage of the https://try.ruby-lang.org/ tutorials to start with. then make my way through https://try.ruby-lang.org/playground/ and then check out the articles. i plan to work on this as much as i can daily or at least 3 days a week. even if it&amp;rsquo;s a little bit at a time. i just need to get back into writing it often to learn. repetition.
+reference material:
+https://ruby-doc.org/ https://devdocs.io/ruby/ i need to make a cheat sheet and mind map.
+side project side projects are always the true learning ground. aside from learning the fundamentals of ruby, i have always found it helpful to have a side project. a tic-tac-toe ai program using the minimax algorithm is in my sites. a great algorithm to start with. i was able to find a wonderful tutorial. my hope is to have it on a web page at some point during this new year.
+ruby on rails project (&amp;hellip;more study) some years back when i was initially looking to migrate my skills from asp.net mvc to ruby on rails, i acquired a text titled ruby on rails tutorial v4.0 (https://rails-4-0.railstutorial.org/book/), by michael hartl. i still have it on my book shelf. but, like most things in tech, it was a bit outdated. so, i bought the newest version and have been making my way through it. and, i have to say, i am really enjoying it!
+i haven&amp;rsquo;t worked with heroku so much though, there are some learning curve there. but, in comparison from v4.0, heroku has made it much easier to deploy projects. also, github now gives free private repositories so, i can keep my git&amp;rsquo;s there too, which makes it nice for centralizing my work since 95% of my code lives there in some form or fashion.
+here is my first deploy on heroku:
+https://whispering-wildwood-92577.herokuapp.com/
+">
+                <div>
+                    <a href="/writing/2020/12/ruby/">Ruby</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-12-22</span>
+            </div>
+        
+            <div class="post-row" data-title="i don&#39;t use facebook" data-content=" how can you tell if someone is a vegan? you don&amp;rsquo;t have to, they will tell you. i feel like not using facebook is much the same joke. itâ€™s easy to hate on facebook, but it&amp;rsquo;s not easy to avoid using it. not that i have anything against facebook, per se. many people do, though. i just don&amp;rsquo;t need to know what is going on all the time in the world. especially on fb, or in the eyes of fb users. every minute, every post, every non-relevant event or&amp;hellip; &amp;lsquo;like&amp;rsquo;. i&amp;rsquo;m not saying that i don&amp;rsquo;t check the news or touch base with friends, and far be from me to say what is best for someone else! to be frank, i don&amp;rsquo;t have a myriad of close friends â€” most people don&amp;rsquo;t. i do, however, have a handful of select &amp;ldquo;best&amp;rdquo; friends that i deliberately take the time to talk to or write to. plus, i&amp;rsquo;m married with a family. that tends to fill my life perfectly. not to mention that i just don&amp;rsquo;t like the way fb makes me feel â€” and the potential time-suck it presents. people have, and use, more leisure time than they tend to want, or know, to admit. (there is plenty of data supporting this). and for the record, mine is not spent in such vrs.
+nostalgia is on the upswing and that is what is on my mind currently, too. i&amp;rsquo;m a 38-year old xennial who went to college in the genesis in which expectations of other people&amp;rsquo;s time were demanded in an insta-micro-second. between flip-phones, aim, and myspace, a call or message was expected to be answered (pseudo-)immediately, and this has only gotten worse over time. one of the worst contributing features of this was myspace&amp;rsquo;s &amp;ldquo;profile views&amp;rdquo; counter and identifier, which was added to personal profile pages. i felt pushed â€” i felt the cattle prod. i already tend to have issues with authority as it is so, naturally, i repel. i stopped the myspace-ing in 2005(?), i believe. i just don&amp;rsquo;t need that kind of platform to manage my connections or life. in 2020, i use an iphone 5s, a casio f-91w wristwatch, an updated address book, and fastmail for electronic mail and calendars. i would do without the iphone but i use it for the camera.
+facebook came on the scene in my final throes of college. i was still in undergrad when i was suggested to join by my housemates. so i did. but, didn&amp;rsquo;t really see much of a benefit outside of a personal address book and an updated contact list. all i saw was small talk, lewd behavior, bragging, and use that very much reminded me of nothing short of a type of new internet pornography. i guess it was good for that if nothing else.
+plus, what&amp;rsquo;s with all the advertisements? sure, you have to make a buck to keep running, but what&amp;rsquo;s with the 80:20? 80% un-useful content, 20% potentially also un-useful content (ads). good content, and useful content at that, on fb, is already lacking. over time, i&amp;rsquo;ve determined it isn&amp;rsquo;t worth my time, given the other, arguably better options of time well spent out there. facebook just represents too little of what else there is to offer in life.
+but, i have to say, i feel left out, in some regards. more acutely, i feel the shaming culture pressed against me. fb has proven to be a type of digital drug that was developed and released before tested. move fast and break things. thatâ€™s the silicon valley digital world though. one has to have the ability to truly know what is good and bad for you. fb is just too darn an inconvenient truth for some. there is a term for this in culture and i don&amp;rsquo;t feel like referencing it right now but, i am not a fan of how fb has created a culture of the knowing and the unknowing. or rather, â€œinâ€ or â€œoutâ€. things i care to know about are my local news and happenings, not that so-and-so has lupus and they posted their recent outbreak. can&amp;rsquo;t fix lupus!
+&amp;ldquo;jesus, did you see shelly&amp;rsquo;s latest lupus outbreak on fb last night! she just posted it. last night. wtf is up with that? she needs to take some natural stuff to get that taken care of.&amp;rdquo;
+i will admit, however, that i still have a fb account, but i don&amp;rsquo;t use it. in addition, i do enjoy visiting twitter or reddit, occasionally. ; )
+">
+                <div>
+                    <a href="/writing/2020/12/i-dont-use-facebook/">I Don&#39;t Use Facebook</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-12-21</span>
+            </div>
+        
+            <div class="post-row" data-title="art it out" data-content=" it has been years since i have taken to art. sure, there is writing and music, both of which i take frequent moments to practice and enjoy, but drawing and painting haven&amp;rsquo;t been my go-to choice for some time. i&amp;rsquo;ve mostly converted to writing css. but these days, however, i have found my love for tangible art again. i can&amp;rsquo;t take all the credit for my rekindling, it&amp;rsquo;s mostly due to my children&amp;rsquo;s affinity to it. at least once a day we sit and draw, doodle, paint, etc. my oldest son (6 yo) can tell when i get a little stressed because he will say to me, &amp;ldquo;art-it-out, dad!&amp;rdquo;
+i needed more supplies though. with that comes a choice â€” many choices. where did i land? for sketch and prototype drawings i use a good ol&amp;rsquo; graphite #2 hb soft pencil by ticonderoga. purely because i have a stash large enough to kindle and light my house on fire for years to come. why buy more? next, the ink for illustration. i tried a couple of pens for this but ultimately found comfort in sakura micron pens, they come in a variety of widths and colors. best of all, they don&amp;rsquo;t bleed with watercolors. for the record, though, i do enjoy a muji gel ink ballpoint pen. ðÿ‘œ finally, the paint. though our art closet has many types to choose from, i personally like to go with watercolor paints. more vexingly specific: general pencil kimberly acid-free non-toxic water soluble watercolor pencils and sakura watercolor pencils. both of which seem to be fine products. but, really, i&amp;rsquo;m able to use pretty much anything that comes across my desk. the canvas comes in many forms but my personal preference is cold press 300-gram watercolor paper.
+as i started drawing and painting, i noticed that what my son was saying to me had some clout. i noticed my stress dissipate, i felt renewed/refreshed. these are the moments that i start to look studies up. i started reading about the benefits of a daily habit ritual â€” or, a hobby. i needed to affirm my feelings and found scientific evidence for the health benefits of drawing in a study in 2016 at drexel university that found statistically significant lower levels of cortisol after 45 minutes of making art. the body typically releases cortisol, a hormone made in the adrenal gland, in response to danger, which is great if you are being chased by covid.
+in a statement given to the new york times the author of the paper, girija kaimal said, â€œ&amp;hellip; if you are constantly feeling stressed, which is perceived as a threat by your brain, your cortisol levels will consistently be high. if youâ€™re constantly on high alert, it puts a lot of pressure on your heart. it takes away resources from your digestive system. a series of chronic health conditions can develop if youâ€™re not able to feel relaxed and not able to regulate down the cortisol in your body.â€
+for my health, that was enough for me to pick up the habit of art again. i plan to make it part of my daily journaling.
+">
+                <div>
+                    <a href="/writing/2020/11/art-it-out/">Art It Out</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-11-24</span>
+            </div>
+        
+            <div class="post-row" data-title="move on" data-content="so much said
+this small space a bed
+now plastic
+instead
+move on
+wake
+bake
+fake
+take
+move on
+life
+strife
+move on
+repeat?
+move on
+retreat?
+&amp;hellip;
+optating
+&amp;hellip;
+move on
+">
+                <div>
+                    <a href="/writing/2020/09/move-on/">Move On</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-09-11</span>
+            </div>
+        
+            <div class="post-row" data-title="lately, again" data-content=" bob is the family cat. or was. we had to put-him-down this last month due to organ failure. he was going on 17-years as a himalayan. i met him when he was about 5 years. he was around for quite some time; you can do the math. we miss him. he now sits on our bookshelf in a little urn with this picture.
+reactjs &amp;amp; music playing with reactjs has been on my list of things to get to as-of-late. i have developed with it in the past but felt the need to dive back into it to keep my feet wet.
+earlier this summer i was given a post from a friend that i grew up with playing music. i was asked to make a daily post on facebook showing the top-10 rock bands that influenced my taste in music. though my tastes have generated a greater spectrum over my professional/daily life, there are 10 albums that bring me the most joy when i think about them. i&amp;rsquo;m not much for facebook but i took the suggestion as a chance to make a project. i decided to make a single page app using the popular create-react-app. plus, it gave me a good reason to use one of my favorite fonts: input mono by david jonathan ross (aka djr).
+the site can be seen here. iâ€™m still working on it as of this post. aside from the posts, i created the site using create-react-app, plopped it in github and deployed it with vercel. each of the albums are linked to spotify.
+select reading â€œwhy parents, with â€˜no good choiceâ€™ this school year, are blaming one anotherâ€, the new york times â€œthe poly-parent households are comingâ€, the new york times â€œcollege-educated professionals are capitalismâ€™s useful idiotsâ€, the atlantic â€œin defense of our teachersâ€, the atlantic ">
+                <div>
+                    <a href="/writing/2020/08/lately-again/">Lately, Again</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-08-19</span>
+            </div>
+        
+            <div class="post-row" data-title="lately" data-content=" i like to think that i will be trying my best to make a â€˜latelyâ€™ post at least once every 1-2 months, depending on my life obligations. but keeping a log of my recent doings has been on my list of things i want to do. such as listening to music and working with new software&amp;hellip;life, in general. maybe i might even talk a little about working with new chemicals in the lab. at any rate, i will attempt to log. these posts will not be very well prepared, just jots.
+music while bike touring i have been going to concerts since i was in elementary school. one of my early concerts was r.e.m. at the palace of auburn hills near detroit when they were on their monster tour. i have been a loving fan of r.e.m. since i can remember. that concert is one of the most memorable times of my life.
+during my long bike tours, lately, i have found myself revisiting them â€” along with aaron dessner (the national) and justin vernon (bon iver) â€” both of which are also obsessions of mine, but recently they have all joined and made my most current ã¼ber obsession.
+no time for love like now by michael stipe &amp;amp; big red machine i have always longed for michael stipe&amp;rsquo;s voice. it has always provided comfort for me. now with big red machine in force, i am above the clouds (that is supposed to be a good thing). iâ€™m listening to them now as i write this.
+the dot com switch i have been working with my old domain https://etreacy.me for several years now and decided to change to .com. i have also changed my hosting and overhauled my entire site to run in a.w.s. i am currently using a.w.s. cloud9 for editing, s3 for storage/hosting, and route 53 domain registry, and cloudfront for c.d.n. whereas before, .me was working with github and netlifyâ€™s dns/cdn network with dreamhost domain registry. i was driven to make my site more efficient and hosted â€˜greenâ€™, whatever that may mean these days. but for me, i host my website in amazonâ€™s a.w.s. central server (montreal, canada), which the energy to run is used with â€˜sustainable/renewableâ€™ energy via hydroelectric dams. also, i wanted my site to run at no data-cost (or at least very little) to the viewer. both domains still exist, and i plan to make the .me domain forward to .com, because according to apex ping, this switch yields a mean response time of 60 ms, which as before it was ~140 ms. that generates a 40% improvement response time, switching from netlify to cloudfront.
+iâ€™m still working on optimizing my images, though. that can take some timeâ€”more about optimizing this site later.
+some recent reading &amp;ldquo;what green costs&amp;rdquo;, logic magazine &amp;ldquo;the nuclear family was a mistake&amp;rdquo;, the atlantic ">
+                <div>
+                    <a href="/writing/2020/07/lately/">Lately</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-07-20</span>
+            </div>
+        
+            <div class="post-row" data-title="playing with numbers (covid-19 data)" data-content="this report is provisional and subject to change. as public health investigations of individual cases continue,there will be corrections to the status and details of referred cases that result in changes to this data.this covid-19 pandemic is a data scientist’s dream (or an epidemiologist’s stressor). not given the circumstances of course, but the amount of data that people can personally relate to is like nothing we have ever seen. this is a time in which we are learning even more about ourselves: culture, science, morals, ethics, resources, etc. data helps us understand those things and ourselves, more — and often, at times, it confuses us. i am often reminded of a famous researcher that i had the honor of working with saying,
+“the more we learn the more we learn what we don’t know.” — pippa marrack
+since i was a middle-schooler, i have loved playing with numbers and formulations. in college and through my whole career in biochemistry and mathematics, i have found joy in numbers and the accompanying visualizations. the data that is currently spewing out into the public has brought the urge to play like a grade schooler again.
+though there is a lock-down on many things in the community, one might think that there is more time to play with these numbers but, my work is very much in demand, and the time i have to spend on side-projects has not increased. but i push on: for this project i have decided to follow the data of the upper peninsula of michigan (mainly marquette county) because it is a dataset that is manageable for me — as far as size goes. i can put a little time into this dataset because, fortunately, we don’t have many cases up here yet.
+where is the data everywhere. that’s the great thing. for this project though i have kept it to the c.d.c., the state of michigan and the new york times for up-to-date numbers.
+where to map the data? there are lots of ways to map this data on the web: mapbox, observable, looker, plotly, kibana, etc., just to name a few. but my tool of choice is typically datawrapper. it is a solid framework that is easy and quick to use. gregor aisch, a former graphics editor at the new york times (2014-2017), now co-founder/cto at datawrapper helped create it and now helps maintain it. their offices are in berlin germany. if you are new to data visualization and want to learn more, datawrapper has a wonderful learning academy to get you started.
+how often do i update the data? data will be updated almost daily — depending on my personal responsibilities. as i said, i anticipate this project being low demand, so i should be able to update daily, with some new graphs added as/if time deems fit.
+why the project? why not? one reason though is that there isn’t an analytical team here in the up, that i know of, that is just looking at the up. yes, we are getting numbers but, having someone local (resident) that can help with the collection of data never hurts. maybe some people will come across it and look at it and consider the risks a little more seriously.
+but, the main reason: a new study by disease modelers at the university of texas at austin gives an answer: even counties with just a single reported case have more than 50 percent likelihood that a sustained, undetected outbreak — an epidemic — is already taking place.
+“i worry that many local officials are waiting until there is clear evidence of local transmission before taking action,” said lauren ancel meyers, a professor of biology and statistics at the university. “the message is, we should not wait.”
+overall, the study finds, 70 percent of all counties in the united states — making up 94 percent of the country&amp;rsquo;s population — are likely to have epidemics. the study defines an epidemic as an outbreak that grows exponentially instead of fading out on its own, eventually infecting a large number of the population.
+known cases in a county probability of community transmission (epidemic) 0 9% 1 51% 2 70% 3 79% 4 84% 5 85% 10 95% 20 99% 43&#43; 100% playing the numbers i am both happy and disappointed with my community during this pandemic. first, i have written about the silver-lining, which i still feel is great. second, however, i have seen more people that aren’t part of my neighborhood wondering around the marquette south trails and trail heads in general — people are congregating in herds there. people are moving to other areas of the community to play — opening a higher probability of transmission. stay home. you can even see the movement of the people in marquette county according to an analysis of cellphone location data by the new york times — even after the march 27th, 2020 ‘stay-at-home&amp;rsquo; order! it finally took marquette city to put out an order that “all city of marquette parks closed effective immediately” to slow people down. we should know better given that it has already been presented to us on april 2nd that we had an 85% probability of community transmission (epidemic) knocking on our doorstep. now, april 7th, 2020, that probability has risen to 95-99% according to disease modelers at the university of texas at austin saying: even counties with just a single reported case have more than 50 percent likelihood that a sustained, undetected outbreak — an epidemic — is already taking place. remember, covid-19 is largely spreading undetected, because of the high proportion of asymptomatic, mild infections and limited laboratory testing.
+we are already in an epidemic in marquette county. stay home. stay safe. remember, that means keeping others safe, too.
+solitude, a simple den, a piece of paper and a pen, a cup of tea, a piece of toast. a window and the holy ghost. some calm, a table and a chair; the mind is free, the soul is bare.
+there&amp;rsquo;s love to make and life to hold.
+the ancient tiny thread of gold
+that runs through all the joy and gloom
+is found inside this tiny room.
+— michael leunig
+">
+                <div>
+                    <a href="/writing/2020/04/playing-with-numbers-covid-19-data/">Playing with Numbers (COVID-19 data)</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-04-07</span>
+            </div>
+        
+            <div class="post-row" data-title="weathering the cytokine storm (sars-cov-2)" data-content=" march 26th, 2020
+the spread of covid-19
+the new york times the map above was taken march 26, 2020. you can download the updated county-level data for coronavirus cases in the united states from the new york times on github. they made the data open source and all the current coverage is free to the public. what a year this month has been. today is my birthday and is the first day of the &amp;lsquo;stay-at-home&amp;rsquo; order for michigan due to covid-19. i took a screen shot of the new york times from my iphone 5 last night before continuing to read my current book, the parable of talents by octavia e. butler.
+march 24th, 2020
+screen shot of my iphone 5
+the new york times for this issue i tend to reference information sources such as the cdc or who, with some supplemental from science magazine and scientific american. the news is getting to be a little too much for me, so i am reading a novel instead to take my mind off of the virus. i got it from the peter white public library, my home library, before it, too, closed due to the pandemic. i started the book a few weeks back and am making my way through. i typically don&amp;rsquo;t enjoy fiction but, i am very much enjoying this one. i wanted to start with the first book, the parable of sorrows, but it was checked out so iâ€™m going backwards.
+through these past couple of weeks, most people in our neighborhood have been staying indoors, apart from afternoon walks just before, or after, dinner time. since schools are closed, children spend their mornings reading and doing schoolwork at home with kahn academy (typically) or abcmouse, eat lunch and head outdoors to play. hockey, riding bikes and sledding tend to be the activity of choice as of late. the sledding has been particularly exciting and satisfying on the awesome luges we have off the marquette south trails system in our back yards. the parents have gotten together in small groups to have campfires and cookouts to release a little cabin fever. bald eagles, pileated woodpeckers, american robins and the occasional northern cardinal have been making appearances. most communication among parents have been via texts and emails at his point. because starting today, all the neighborhood has agreed to no children/adults playing together.
+extended social distancing i have been keeping in touch with all my close friends ranging from boston, to denver, to france to the uk via email, text or snail mail (i tend to not use social media â€” not impressed.). since jen and i worked in the land of academic research, our friend lists have grown extensively, and we have found it difficult to keep in-touch with everyone. the silver lining to these times is that we get the time to talk to the ones we love, even more.
+work life jen and i are still working. jen is at the hospital and i am at the pharmacy. luckily both of which are positions in total need. but it comes at more of a risk to jen than me. iâ€™m a chemist and jen an icu nurse. i already wear extensive personal protective equipment (ppe: n95, chemical gowns or lab coat, gloves) and donâ€™t necessarily work in personal contact with patients. jen, however, does. this makes me nervous given that my mom, 68, watches our daughter a couple days a week. kids, as we know, make a spectacular vector for covid-19 with the potential for asymptomatic transmittance to older folk. not to mention that covid-19 seems to favor inflammatory pathways, which my mom has mild asthma. so, we have taken to caring full time with kids to keep grandma at home.
+the silver lining some may disagree but i tend to try and find the upside to things. pandemic aside, i must proclaim that i have been very much enjoying the lockdown. it has, in turn, promoted a slower and more focused style of life. more family gathering. more reading. more games. more neighborhood utilization. more exercise. and we have been living in this neighborhood for three years now and i have met more people in these three weeks than the past handful of years&amp;hellip; and our neighborhood is already well connected with one another. but there are more people walking the neighborhood and hitting the bike trails. more talk (greater than six feet, of course). more home. i love it. more bird watching, which my family loves to do. people arenâ€™t spending money and opting to staying home for meals. but we rarely go out as it is â€” we have always made eating at the table as a family a priority at home.
+seven principles to remember there are seven principles that we go by from the day-to-day life. we have adopted them through the unitarian universalist seven principles. we keep them in our family, especially during times such as this.
+the inherent worth and dignity of every person. justice, equity and compassion in human relations. acceptance of one another and encouragement to spiritual growth. a free and responsible search for truth and meaning. the right of conscience and the use of the democratic process within our congregations and in society at large. the goal of a world community with peace, liberty, and justice for all. respect for the interdependent web of all existence of which we are a part. they help us remember to be kind to each other and love.
+the arts it is through such a time as this that art saves. through the most devastating occurrences in humanity art has always been the anecdote to recovery. i am a musician myself and i have tended a family to be very much the same. we have always made music a part of our everyday lives. during this pandemic it has only intensified our love for art. not just music but paint, pencil, pen, wood, clay, play-doe&amp;hellip; no matter the medium music is very much a part of it. but out of the thousands of songs we have listened to, especially these past few weeks, nothing has been more of a joy for me than bon iverâ€™s cache of brilliance. i could talk about music for far too long but, at this point, jazz, nature sounds, and bon iver have been my go-to for building/preserving mental immunity.
+a think to remember â€œremember that most of us, and most of our loved ones, are going to be fine. but the russian roulette aspect of this, the randomness of this, is very real. so, letâ€™s look it in the eye, and move on together.â€ — brian lehrer, radio wnyc
+">
+                <div>
+                    <a href="/writing/2020/03/weathering-the-cytokine-storm-sars-cov-2/">Weathering the Cytokine Storm (SARS-CoV-2)</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2020-03-24</span>
+            </div>
+        
+            <div class="post-row" data-title="post-vacation ptsd" data-content=" horseshoe bend
+glen canyon national park
+photo with my iphone 5 it doesn&amp;rsquo;t happen often, but sometimes i feel off: a couple/few times a year. i don&amp;rsquo;t feel bad, just off. cloudy headed and mentally imbalanced. sometimes confused and trying to find the words. out of curiosity, i decided to write about it while i was experiencing it and see what i conclude.
+my mind is nebulous, and i feel slightly achy. i am not sick â€” i have, and do, eat well â€” and responsibly. i don&amp;rsquo;t have a temperature or any inflammation in my glands. it is a thursday workday. i am excited for the weekend to spend it with my family and in-laws. the only thing i can think of, though, is that i just came back from a week of vacation (a few weeks ago) and all i have been doing at work is catching up on a week&amp;rsquo;s worth of work. i&amp;rsquo;m not complaining â€” honestly â€” this isn&amp;rsquo;t a rant about work; i love my job. this is more of an exploration of what seems like emotional incontinence. i&amp;rsquo;m just saying that it&amp;rsquo;s been a little more than a stressful couple of weeks than usual. first world problem, but this is me trying to think-out the cause.
+maybe it was the cannabidiol i had last night. ðÿ˜
+maybe it was that my family and i vacationed in glen canyon np a few weeks ago. we had some friends get married there. though beautiful, there was something that concerned me: the environment. low water levels, the haze, the commerce â€” the travel in general â€” the fact that we know:
+tourismâ€™s carbon footprint grew four times as much as expected from 2009 to 2013 and accounted for 8 percent of all greenhouse-gas emissions in that period. the travel industry is expected to consume 92 percent more water in 2050 than it did in 2010, and 189 percent more land. people are less likely to recycle while on vacation (both because theyâ€™re unsure how to, and because getting away with things seems to be a key part of getting away from it all) i can go on, but in a nutshell, the place was starting to look trampled on â€” used. yes, they are expanding parking lots there in areas but, that&amp;rsquo;s just it: expanding to accommodate more people than it already cannot support.
+but, hey, in all sincerity, it was an amazing place with great experiences and people. it was a fun and rewarding trip. about 23.3333333% shameful. the rest, humanful.
+there&amp;rsquo;s that bad feeling again&amp;hellip; i need a break. cbd consumption @ 40mg
+i&amp;rsquo;m back. i took some time to organize some of my photos on amazon photos.
+then to affirm my emotions about my travels, i decided to take a carbon footprint test to see how much co2 emissions my family put off while making our travels. because according to a new york times article by the excellent andy newman, our trips can be calculated by an online carbon calculator. basically, in short,
+32 sq. ft. is the amount of arctic summer sea ice cover that one passengerâ€™s share of emissions melts on a 2,500-mile flight.
+that is a confusing statement. that means that for each 2,500-miles traveled, 32 sq.ft. of arctic summer sea ice melts. i don&amp;rsquo;t even need to do the calculation â€” i know it&amp;rsquo;s not good given that we drove from marquette, mi to minneapolis, mn and then flew to phonix, az only to travel more to glen canyon np â€” and then back. hmph.
+to tangent a bit, i have been reading the new philosopher &amp;lsquo;balance&amp;rsquo; issue this week and i have come to a few ideas as to why i may feel off. sometimes â€” aside from the potential for nutrient imbalance or weather conditions in marquette, michigan on june 13, 2019 â€” i feel as though i have been trying to keep myself in balance more since having children. i have been trying to play a role and stay on it at any given cost. it mentally drains me and though i sleep (though only about 4-5 hrs a night), i still feel like i am playing catchup. to add to the stress, i listened to matt walker in a ted talk about sleep during our travels home. i&amp;rsquo;ll save you the words: it concerns me greatly.
+i have been thinking &amp; studying about sleep lately. and then, glen canyon np, again. i think it was the site of glen canyon np that is putting the emotional hangover on my mind and, in turn, my body. conclusion: i&amp;rsquo;m tired today from my post-traumatic stressing-out about my recent family vacation travels.
+or, the in-laws&amp;hellip;? aren&amp;rsquo;t we supposed to be stressed-out about in-laws? rarely, am i stressed about them. i love them and they are amazing people. so, no, it&amp;rsquo;s not that.
+i need to get back to work. it&amp;rsquo;s good for me.
+more reading to stress you out about your travel:
+&amp;ldquo;hell is other people&amp;rsquo;s vacations&amp;rdquo;, the atlantic &amp;ldquo;if seeing the world helps ruin it, should we stay home?&amp;rdquo;, the new york times ">
+                <div>
+                    <a href="/writing/2019/08/post-vacation-ptsd/">Post-Vacation PTSD</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2019-08-16</span>
+            </div>
+        
+            <div class="post-row" data-title="elizabeth warren 2019" data-content=" i will be voting for elizabeth warren in the democratic primary election. my modest donations will also be going to her campaign â€” and you should consider her for your choice in the democratic primary election, too.
+elizabeth warren
+credit: sharif hamza
+the new york times my choice is one of many factors: student-debt relief, higher-education reform, universal child care, ultra-millionaire tax, real corporate profits tax, affordable housing, protecting public lands, decreasing maternal mortality rates, protecting abortion rights, climate &amp;amp; environment, immigration, etc.
+i want to know someone is actually representing humans, not just americans. the main issue of which i care: environment. next, immigration. next, the rest.
+i decided to make this post because i feel i needed to make it concrete. though the list above encapsulates many of the issues that i feel passionate about, most of them are lagniappe â€” but, for the betterment of humanity: environment and immigration are at the top of my list.
+this is the primary â€” and anything can happen between now and the general election â€” i know that. with a record number of democratic candidates in the running, i only hope, at this time, that warren will be the primary choice.
+*** this also is a bit of a response to tom macwright&amp;rsquo;s post about his decision to vote for elizabeth warren in the coming democratic primaries. over the years, i have become excited to read his material which, in turn, has assisted in my professional growth. thanks, tom. âœœï¸
+">
+                <div>
+                    <a href="/writing/2019/06/elizabeth-warren-2019/">Elizabeth Warren 2019</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2019-06-26</span>
+            </div>
+        
+            <div class="post-row" data-title="rant test" data-content="i read and write a lot. most days, i spend a small designated amount of time sifting through a handful of either paid or non-paid subscriptions. but, most often, that time is spent reading books or new philosopher these days. i have a handful of subjects that interest me to no foreseeable end: technology, science, economics, environment are the main areas of interest with an emphasis on the environment.
+i don&amp;rsquo;t tend to do much output on this site because it takes a long time to produce a post. especially if i use an image. and, as a parent, my days are pretty scarce with spare time. i don&amp;rsquo;t make money off of this site â€” that isn&amp;rsquo;t my intent. i just like to write and put it out there. much like going out into my own community and talking with the people here in marquette, michigan â€” or the up in general. plus, it helps me collect my thoughts.
+the internet plays a smaller part of my life. i tend to be on the side of refusing to believe that there needs to be a high-tech solution to every problem. most often time, i use the internet at work or in brief sessions at home to look something up. other than that, i don&amp;rsquo;t use social media other than the occasional twitter, which i don&amp;rsquo;t really enjoy, but some of the developers i learn from hang out there so, &amp;hellip; hmph. maybe i should just say eff-it to twitter too. they have horrible transparency about their carbon emissions output anyways.
+i&amp;rsquo;m not into software development to a high degree anymore. it was stressful and time-consuming in the environments i worked in (not great for family life). but, i feel it is an important skill to have and i practice with side projects. i see code like writing: symbols that mean something. the internet is crucial to communication and information for this world so, you might want to know something about it.
+&amp;ldquo;we live in a society exquisitely dependent on science and technology, in which hardly anyone knows anything about science and technology.&amp;rdquo; â€” carl sagan
+i&amp;rsquo;m currently getting more interested in servers and running them with renewable energies. for example, running this website on solar â€” which i am currently working on.
+i have a lot of projects going on at home right now. so, that is where i will most undoubtedly be for most of this summer. we only get 4 months or so with nice sunny weather here, so i need to take advantage of that.
+going back to writing: i write a lot. in small sprints of thought that is put down on scrap paper or in notion.so. i can write and transfer the text into a markdown format and transfer it to my personal website with little editing if i want. but, a lot of my notes are still in paper, most notably, the lab notebooks.
+i am currently working on taking a lot of my paper lab protocols and placing them here for reference. i will, however, still keep the paper notes.
+i also wanted to put this rant on some digital paper to run some tests: site optimization with just text. the more i learn about images and the internet, the more i realize it&amp;rsquo;s just worth all that much trouble â€” much like using web fonts.
+my thoughts on web fonts are very much like those of adam morse:
+&amp;ldquo;there are a lot of arguments about why you should use web fonts. in none of those arguments, have i heard about a single problem being solved for users. and well, i&amp;rsquo;m only really interested in solving problems for users.&amp;rdquo;
+or for me, i just want my site to be accessible by anyone, anywhere. with no cost to the reader.
+images can provide great assistance in writing but, more often times, they aren&amp;rsquo;t needed. how many times have you read a book with absolutely no images? the intent is to communicate with text. that&amp;rsquo;s typically powerful enough. the marketing of the internet has started to ruin this for us. plus, this has lead to a lot of web bloat and use data cost. the internet is expensive already! stop pulling the money out from me, wordpress sites! just switching to a static web site saves a great deal of time, money, data and is arguably more secure. plus, anyone can run their own website with just the purchase of a domain. i am currently working on a post about making a simple static site at less than $10/year that costs your reader nothing to view on a mobile device.
+my wife is not one to use the internet more than she has to. but when she does, she vexes about page load and weight. &amp;ldquo;this crappy website is costing me my time with all this useless advertisement and page dependencies!&amp;rdquo;. today&amp;rsquo;s internet is full of shit. even the big distributors of information such as the new york times and the wall street journal, though very great reading, build an internet that is bloated and at time inaccessible largely due to heavy page weight and poor color choice in the design to name a couple of things. for example, the wall street journal&amp;rsquo;s links are not webaim compliant. you can also check this by using wave as a chrome extension.
+so for this site, i have decided to minimize image use and not use web fonts (which i am currently writing about too). they don&amp;rsquo;t do much for my site, especially when all i want to do is write anyways. the occasional image may be used, but that will just be me submitting to my human desires, which i guess, isn&amp;rsquo;t always bad. i just need to try and keep the image under at least half the weight of only the text on the web page. or, use svg. jpg, png, webp, gif are all fun and great but not all browsers support each one and they are still pretty loaded with needless stuffs that bog down the web page. i need to choose wisely and all developers do too.
+page weight: 4.9kb
+">
+                <div>
+                    <a href="/writing/2019/06/rant-test/">Rant Test</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2019-06-25</span>
+            </div>
+        
+            <div class="post-row" data-title="publications" data-content="stefanski, adrianne l., nadine martinez, lisa k. peterson, tiffany j. callahan, eric c. treacy, marisa luck, samantha f. friend et al. &amp;ldquo;murine trophoblast-derived and pregnancy-associated exosome-enriched extracellular vesicle micrornas: implications for placenta driven effects on maternal physiology.&amp;rdquo; plos one 14, no. 2 (2019): e0210675.
+the role of extracellular vesicles (evs), specifically exosomes, in intercellular communication likely plays a key role in placental orchestration of pregnancy and maternal immune sensing of the fetus. while murine models are powerful tools to study pregnancy and maternal-fetal immune interactions, in contrast to human placental exosomes, the content of murine placental and pregnancy exosomes remains largely understudied. using a recently developed in vitro culture technique, murine trophoblast stem cells derived from b6 mice were differentiated into syncytial-like cells. evs from the conditioned media, as well as from pregnant and non-pregnant sera, were enriched for exosomes. the rna composition of these murine trophoblast-derived and pregnancy-associated exosome-enriched-evs (exoe-evs) was determined using rna-sequencing analysis and expression levels confirmed by qrt-pcr. differentially abundant mirnas were detected in syncytial differentiated exoe-evs, particularly from the x chromosome cluster (mmu-mir-322-3p, mmu-mir-322-5p, mmu-mir-503-5p, mmu-mir-542-3p, and mmu-mir-450a-5p). these were confirmed to be increased in pregnant mouse sera exoe-evs by qrt-pcr analysis. interestingly, fifteen mirnas were only present within the pregnancy-derived exoe-evs compared to non-pregnant controls. mmu-mir-292-3p and mmu-mir-183-5p were noted to be some of the most abundant mirnas in syncytial exoe-evs and were also present at higher levels in pregnant versus non-pregnant sera exoe-evs. the bioinformatics tool, multimir, was employed to query publicly available databases of predicted mirna-target interactions. this analysis reveals that the x-chromosome mirnas are predicted to target ubiquitin-mediated proteolysis and intracellular signaling pathways. knowing the cargo of placental and pregnancy-specific exoe-evs as well as the predicted biological targets informs studies using murine models to examine not only maternal-fetal immune interactions but also the physiologic consequences of placental-maternal communication. peterson, lisa k., luke f. pennington, laura a. shaw, meredith brown, eric c. treacy, samantha f. friend, ã˜yvind hatlevik, kira rubtsova, anatoly v. rubtsov, and leonard l. dragone. &amp;ldquo;slap deficiency decreases dsdna autoantibody production.&amp;rdquo; clinical immunology 150, no. 2 (2014): 201-209.
+src-like adaptor protein (slap) adapts c-cbl, an e3 ubiquitin ligase, to activated components of the bcr signaling complex regulating bcr levels and signaling in developing b cells. based on this function, we asked whether slap deficiency could decrease the threshold for tolerance and eliminate development of autoreactive b cells in two models of autoantibody production. first, we sensitized mice with a dsdna mimetope that causes an anti-dsdna response. despite equivalent production of anti-peptide antibodies compared to balb/c controls, slap(-/-) mice did not produce anti-dsdna. second, we used the 56r tolerance model. slap(-/-) 56r mice had decreased levels of dsdna-reactive antibodies compared to 56r mice due to skewed light chain usage. thus, slap is a critical regulator of b-cell development and function and its deficiency leads to decreased autoreactive b cells that are otherwise maintained by inefficient receptor editing or failed negative selection. friend, samantha f., lisa k. peterson, eric c. treacy, adrianne l. stefanski, tomasz sosinowski, nathan d. pennock, allison j. berger, virginia d. winn, and leonard l. dragone. &amp;ldquo;the discovery of a reciprocal relationship between tyrosine-kinase signaling and cullin neddylation.&amp;rdquo; plos one 8, no. 10 (2013): e75200.
+while neddylation is known to activate cullin (cul)-ring ubiquitin ligases (crls), its role in regulating t cell signaling is poorly understood. using the investigational nedd8 activating enzyme (nae) inhibitor, mln4924, we found that neddylation negatively regulates t cell receptor (tcr) signaling, as its inhibition increases il-2 production, t cell proliferation and treg development in vitro. we also discovered that loss of cul neddylation occurs upon tcr signaling, and crls negatively regulate il-2 production. additionally, we found that tyrosine kinase signaling leads to cul deneddylation in multiple cell types. these studies indicate that cul neddylation is a global regulatory mechanism for tyrosine kinase signaling. ">
+                <div>
+                    <a href="/writing/2019/06/publications/">Publications</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2019-06-18</span>
+            </div>
+        
+            <div class="post-row" data-title="cloud9 to aws cloud9" data-content=" for my personal website at least. for some time i have been kinda worried about this:
+but not too worried. i use github â€” i keep my code in there. i just had to open a new environment in aws cloud9 and git-clone my site. then,
+$ bundle install $ bundle update $ jekyll serve --host $ip --port $port --baseurl &#39;&#39; works.
+$ ^c let&amp;rsquo;s just go for it.
+$ git init $ git add . $ git commit -m &amp;quot;migrate from cloud9 to aws cloud9&amp;quot; $ git push -f origin master done!
+conclusion phew â€” way easier than i thought it would be. only took ~7 min too.
+not much more to say about that.
+note: svg loading icon built with love by me: copy it. paste it. use it. share it. but most importantly: have patience.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 &amp;lt;svg xmlns=&amp;#34;http://www.w3.org/2000/svg&amp;#34; viewbox=&amp;#34;0 0 32 32&amp;#34; fill=&amp;#34;black&amp;#34;&amp;gt; &amp;lt;path opacity=&amp;#34;.25&amp;#34; d=&amp;#34;m16 0 a16 16 0 0 0 16 32 a16 16 0 0 0 16 0 m16 4 a12 12 0 0 1 16 28 a12 12 0 0 1 16 4&amp;#34;/&amp;gt; &amp;lt;path d=&amp;#34;m16 0 a16 16 0 0 1 32 16 l28 16 a12 12 0 0 0 16 4z&amp;#34;&amp;gt; &amp;lt;animatetransform attributename=&amp;#34;transform&amp;#34; type=&amp;#34;rotate&amp;#34; from=&amp;#34;0 16 16&amp;#34; to=&amp;#34;360 16 16&amp;#34; dur=&amp;#34;.9s&amp;#34; repeatcount=&amp;#34;indefinite&amp;#34; /&amp;gt; &amp;lt;/path&amp;gt; &amp;lt;/svg&amp;gt; ">
+                <div>
+                    <a href="/writing/2019/06/cloud9-to-aws-cloud9/">Cloud9 to AWS Cloud9</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2019-06-13</span>
+            </div>
+        
+            <div class="post-row" data-title="dropping google in 2019" data-content=" i decided to make this the year of leaving google for everything personal. i had been thinking about dropping google since 2016, but thought that it would be too much effort. too much hassle. what about all those accounts that i use gmail for?! as it turned out, it was just as easy as an easy thing to drop it all behind.
+i switched from gmail to fastmail to start with for my mail and calendars. then, i transferred a few domains and â€” *voilã * â€” the end of an era. this was starting to feel good. liberating, really. and, it only took me a few hours overall.
+switching from gmail â€” and other google products â€” i feel, was â€” and is â€” inevitable. most of my personal work utilities have been solved using other platforms and/or tools. and most of the new tools available today are arguably superior to google products. currently, i use
+notion or dropbox paper instead of google docs for writing, notes, files and team collaborations github for code especially since github private repos are free now. cloud9 for ide duckduckgo and brave for web browsing and editing dropbox instead of google drive for file storage/sharing iwantmyname.com for domain registry the list continues, but not by much. all-in-all, i oscillate between a handful of applications that keep me focused and engaged â€” with little cost financially (~$25/mo). and, i get full control of my own information. that&amp;rsquo;s worth the price to me. not that i have anything to hide, i just like that i have the control and choice in my web.
+typically, i don&amp;rsquo;t mind sharing data for free services â€” most people don&amp;rsquo;t. but, i wanted to make this the year of simplifying my personal workflow; and avoid unnecessary tangents of attention that, as we all know, adds up. empty spaces allow you to focus on yourself and others around you. more importantly, it preserves your mental immunity.
+in earlier days, google was great. i can recall using gmail in the beginning somewhere around 2005 (still in undergrad school) when one needed an invite to join. the platform was so snappy and fun. i spent more time playing with it and observing its response and design rather than reading email. but, over time, gmail started to get a little vexing. google itself started to get vexing.
+it was a few years back when i returned from a trip to australia that i dumped a boat-load of photos into my google drive/photos directory that drew the line for me. i later logged into my account and â€” behold! â€” there was this annoying little message stating that they made a gif with a series of photos of mine and wanted to share it with me&amp;hellip;?
+(&amp;hellip;???)
+i had a very peculiar feeling about it, and it was off-putting. it was then that i decided that i needed to leave google and find my own path.
+i have talked to numerous people about fastmail, and most of them bring up the security topic. i have worked in programming with email before, and it&amp;rsquo;s complicated. not an area i enjoy all that much. but one thing fastmail has written is that they donâ€™t support pgp, which is the only popular method of end-to-end email encryption. which makes sense to me: pgp is renowned for terrible usability and hacked-together workflows.
+fastmail does, however, have other, excellent security standards. as tom macwright mentioned, &amp;ldquo;[fastmail] probably donâ€™t take part in intelligence-gathering for nation-states, as google did with prism. so, there are reasons to feel good and positive about the switch.&amp;rdquo;
+most of my contacts are with family or clients that don&amp;rsquo;t tend to care that much about their security as much as they think they do. typically, they will be using 6-alpha/numeric characters that closely resembles a birth date or part of a social security number. so, that typically leads into a 10 min security 101 extemporaneous course.
+if youâ€™re thinking about getting away from google, nowâ€™s a great time to try life without it. the alternatives are reliable and solid â€” if not superior â€” and switching isnâ€™t too painful. the google dashboard is arguably one of their best-maintained products â€” and it&amp;rsquo;s your way out. meaning, it lets you download and delete your personal data.
+">
+                <div>
+                    <a href="/writing/2019/02/dropping-google-in-2019/">Dropping Google in 2019</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2019-02-12</span>
+            </div>
+        
+            <div class="post-row" data-title="the meaning of life" data-content="an obsolete question.
+have we not imbibed from our progenitors?
+such a question is unfit.
+rather i query: how amazing is it that life exists?!
+">
+                <div>
+                    <a href="/writing/2019/01/the-meaning-of-life/">The Meaning of Life</a>
+                    <div class="post-preview"></div>
+                </div>
+                <span>2019-01-03</span>
+            </div>
+        
+        </div>
+        <div class="no-results" style="display: none;">No posts found</div>
+    </div>
+</div>
+
+<style>
+    .post-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0.25rem 0;
+        width: 100%;
+    }
+
+    .post-row span {
+        margin-left: 2rem;
+        flex-shrink: 0;
+        font-family: var(--sans);
+        font-size: 0.9rem;
+    }
+
+    .search-container {
+        margin: 2rem 0;
+        width: 100%;
+        max-width: 640px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border: 2px solid #eee;
+        border-radius: 4px;
+        font-family: var(--sans);
+        box-sizing: border-box;
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: var(--theme-ui-colors-primary);
+    }
+
+    .no-results {
+        padding: 1rem 0;
+        font-style: italic;
+        font-family: var(--sans);
+    }
+
+    .post-preview {
+        font-size: 0.9rem;
+        margin-top: 0.25rem;
+        display: none;
+        width: 100%;
+        font-family: var(--sans);
+    }
+
+    .highlight {
+        background-color: var(--theme-ui-colors-muted);
+        padding: 0 0.25rem;
+    }
+
+    @media (max-width: 600px) {
+        .post-row {
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.5rem 0;
+        }
+
+        .post-row span {
+            margin-left: 0;
+            font-size: 0.85rem;
+        }
+
+        .search-container {
+            margin: 1rem 0;
+        }
+
+        .search-input {
+            font-size: 0.9rem;
+            padding: 0.5rem;
+        }
+
+        .post-preview {
+            font-size: 0.85rem;
+        }
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.search-input');
+    const posts = document.querySelectorAll('.post-row');
+    const noResults = document.querySelector('.no-results');
+    
+    function highlightText(text, searchTerm) {
+        if (!searchTerm) return text;
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        return text.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    function getContentPreview(content, searchTerm, previewLength = 150) {
+        if (!searchTerm) return '';
+        
+        const lowerContent = content.toLowerCase();
+        const termIndex = lowerContent.indexOf(searchTerm);
+        
+        if (termIndex === -1) return '';
+        
+        let start = Math.max(0, termIndex - previewLength / 2);
+        let end = Math.min(content.length, termIndex + searchTerm.length + previewLength / 2);
+        
+        
+        while (start > 0 && content[start] !== ' ') start--;
+        while (end < content.length && content[end] !== ' ') end++;
+        
+        let preview = content.slice(start, end).trim();
+        if (start > 0) preview = '...' + preview;
+        if (end < content.length) preview = preview + '...';
+        
+        return highlightText(preview, searchTerm);
+    }
+    
+    searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        let hasResults = false;
+        
+        posts.forEach(post => {
+            const title = post.dataset.title;
+            const content = post.dataset.content;
+            const preview = post.querySelector('.post-preview');
+            const titleMatch = title.includes(searchTerm);
+            const contentMatch = content.includes(searchTerm);
+            
+            if (titleMatch || contentMatch) {
+                post.style.display = 'flex';
+                hasResults = true;
+                
+                
+                if (searchTerm && contentMatch) {
+                    preview.innerHTML = getContentPreview(content, searchTerm);
+                    preview.style.display = 'block';
+                } else {
+                    preview.style.display = 'none';
+                }
+            } else {
+                post.style.display = 'none';
+            }
+        });
+        
+        noResults.style.display = hasResults ? 'none' : 'block';
+    });
+});
+</script>
+
+    </main>
+    
+
+    <footer role="contentinfo">
+        Designed, written, and built by Eric Treacy. This site collects no data or analytics.
+        He can be distracted via good ol' fashioned <a href="mailto:mail@etreacy.me">E-mail</a>.
+        <br/>
+        It's currently year 2025.️
+        <br/><br/>
+        <div>✺ </div> 
+    </footer>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const doodle = document.querySelector('css-doodle');
+            if (doodle) {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+                doodle.style.setProperty('--mx', x);
+                doodle.style.setProperty('--my', y);
+            }
+        });
+
+        document.body.addEventListener('click', function(e) {
+            if (e.target.tagName.toLowerCase() === 'css-doodle') {
+                e.target.update();
+            }
+        });
+    </script>
+</body>
+</html>

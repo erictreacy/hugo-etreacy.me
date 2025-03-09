@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="p2" role="main">
+    <div class="h2">
+        <h1 class="my0 mb3">{{ .Title }}</h1>
+        {{ .Content }}
+        
+        <div class="photo-grid">
+            {{ range .Site.Data.photos }}
+                <figure class="photo-item">
+                    <a href="{{ .url }}">
+                        <img src="{{ .url }}" 
+                             alt="{{ .alt }}"
+                             loading="lazy">
+                    </a>
+                    <figcaption>{{ .caption }}</figcaption>
+                </figure>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="p2" role="main">
+    <div class="h2">
+        <h1 class="my0 mb3">{{ .Title }}</h1>
+        {{ .Content }}
+        <br />
+        {{ $books := .Site.Data.library }}
+        {{ $readBooks := where $books "status" "read" }}
+        {{ $sortedBooks := sort $readBooks "date_read" "desc" }}
+        <div class="grid">
+        {{ range $sortedBooks }}
+            <a href="{{ .link }}" class="text-decoration-none reading">
+                <img alt="{{ .alt }}" src="{{ .image | absURL }}"><b>{{ .title }}</b>
+                <span class="meta"><br><small>{{ .author }}</small></span>
+            </a>
+        {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}

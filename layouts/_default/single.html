@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="p2 border" role="main">
+    <div class="h2">
+        <h1 class="my0 mb3">{{ .Title }}</h1>
+        
+        {{ if .Date }}
+        <div class="mb3" style="margin-top: -2.5rem; font-style: italic; font-size: 80%">
+            <time>{{ .Date.Format "January 2, 2006" }}</time> by Eric Treacy 
+        </div>
+        {{ end }}
+    
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}

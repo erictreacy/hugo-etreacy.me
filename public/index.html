@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric Treacy</title>
+    <meta name="description" content="The blog, projects, and internet propensity of Eric Treacy.">
+    <meta name="keywords" content="Eric Treacy, EricTreacy, ETreacy, etreacy, Web Developer, Marquette, Michigan, science, philosophy, blog, library, projects">
+    <meta name="author" content="Eric Treacy">
+    <meta content=#fff name=theme-color>
+    <link rel="icon" href="/favicon/favicon.png" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/home.css">
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://unpkg.com/css-doodle@0.34.8/css-doodle.min.js"></script>
+    
+    
+    <script defer src="/js/copy.js"></script>
+</head>
+<body class="home">
+    
+    <main class="p2 mb2 border">
+        <h1 class="my0 mb3">Eric Treacy</h1>
+        
+        <a href="/about/" class="text_decoration_none" title="About" aria-label="Read more">
+            <css-doodle>
+                /* If you're reading this message your browser does not support web components! Try using Google Chrome or Safari for the full experience ; ) */
+                :doodle {
+                    @grid: 7 / min(42vmin, 320px);
+                    perspective-origin: calc(var(--mx, 50) * 1%) calc(var(--my, 50) * 1%);
+                }
+                @size: 3px min(42vmin, 320px);
+                @place-cell: center;
+                background: @pick(#1e3a8a, #1e40af, #1d4ed8, #2563eb, #3b82f6);
+                --sy: @rand(-360deg, 360deg);
+                --sz: @rand(-360deg, 360deg);
+                animation: r 75s linear infinite;
+                transform: rotateY(var(--sy)) rotateZ(var(--sz));
+                @keyframes r {
+                    to {
+                        transform: rotateY(calc(var(--sy) + 360deg)) rotateZ(calc(var(--sz) + 360deg));
+                    }
+                }
+            </css-doodle>
+        </a>
+
+        <div class="right mt3">
+            <small>Engineer based in<br> Marquette, Michigan</small>
+        </div>
+    </main>
+
+    <div class="p2 border" role="main">
+        <div class="h2">
+            <p>Eric is a engineer with an affinity and aptitude for bench science, lab design and software.</p>
+<p>Most of my days are spent in the lab making products for my community, but
+I occasionally take respite to create <a href="/projects/">web ephemera</a> involving code and minimal design through various web technologies.</p>
+<p>I enjoy taking <a href="/photos/">photos</a>, <a href="/reading/">reading</a>, <a href="https://bandcamp.com/etreacy">music</a>, writing <a href="https://github.com/erictreacy">code</a>, playing <a href="https://www.alltrails.com/members/eric-treacy">outdoors</a>
+and <a href="/writing/">writing</a> about the anxieties over our technological evolution.</p>
+<p>Let&rsquo;s chat! Feel free to <a href="/about/">contact</a> me at anytime.</p>
+
+        </div>
+    </div>
+    
+
+    <footer role="contentinfo">
+        Designed, written, and built by Eric Treacy. This site collects no data or analytics.
+        He can be distracted via good ol' fashioned <a href="mailto:mail@etreacy.me">E-mail</a>.
+        <br/>
+        It's currently year 2025.️
+        <br/><br/>
+        <div>✺ </div> 
+    </footer>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const doodle = document.querySelector('css-doodle');
+            if (doodle) {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+                doodle.style.setProperty('--mx', x);
+                doodle.style.setProperty('--my', y);
+            }
+        });
+
+        document.body.addEventListener('click', function(e) {
+            if (e.target.tagName.toLowerCase() === 'css-doodle') {
+                e.target.update();
+            }
+        });
+    </script>
+</body>
+</html>

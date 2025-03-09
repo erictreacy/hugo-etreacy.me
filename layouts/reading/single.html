@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article class="reading-item">
+    <h1 class="reading-title">{{ .Title }}</h1>
+    {{ with .Params.author }}
+    <div class="reading-author">by {{ . }}</div>
+    {{ end }}
+    <div class="reading-meta">
+        {{ .Date.Format "January 2006" }}
+        {{ with .Params.rating }}
+        • Rating: {{ . }}/5
+        {{ end }}
+        {{ with .Params.link }}
+        • <a href="{{ . }}" class="reading-link" target="_blank" rel="noopener">View on Goodreads</a>
+        {{ end }}
+    </div>
+    {{ with .Params.tags }}
+    <div class="reading-tags">
+        {{ range . }}
+        <span class="reading-tag">{{ . }}</span>
+        {{ end }}
+    </div>
+    {{ end }}
+    <div class="reading-notes">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}

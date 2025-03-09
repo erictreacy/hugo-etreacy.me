@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud9 to AWS Cloud9 - Eric Treacy</title>
+    <meta name="description" content="The blog, projects, and internet propensity of Eric Treacy">
+    <meta name="keywords" content="Eric Treacy, EricTreacy, ETreacy, etreacy, Web Developer, Marquette, Michigan, science, philosophy, blog, library, projects">
+    <meta name="author" content="Eric Treacy">
+    <meta content=#fff name=theme-color>
+    <link rel="icon" href="/favicon/favicon.png" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    
+    <link rel="stylesheet" href="/css/writing.css">
+    
+    
+    
+    
+    
+    
+    
+    <script defer src="/js/copy.js"></script>
+</head>
+<body>
+    
+    <header>
+        <a href="/" role="banner">Eric Treacy</a>
+        <nav role="navigation">
+            <ul>
+                <li class="active"><a href="/writing/">Writing</a></li>
+                <li ><a href="/projects/">Projects</a></li>
+                <li ><a href="/reading/">Reading</a></li>
+                <li ><a href="/about/">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+<div class="p21" role="main">
+    <div class="h2">
+        <h1 class="my0 mb3" style="padding: 0">Cloud9 to AWS Cloud9</h1>
+        
+        
+        
+        <div style="margin-top:-1.75rem; font-style: italic; font-size: 80%">
+        <time>June 13, 2019</time> by Eric Treacy 
+        </div>
+        
+    
+        <style>
+.center {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+</style>
+<p>For my personal website at least. For some time I have been kinda worried about this:</p>
+<img src="/data/images/awscloud9.png" class="center" />
+<p>But not too worried. I use <a href="https://github.com/">GitHub</a> â€” I keep my code in there. I just had to open a new environment in AWS Cloud9 and git-clone my site. Then,</p>
+<pre><code>$ bundle install
+$ bundle update
+$ jekyll serve --host $IP --port $PORT --baseurl ''
+</code></pre>
+<p>Works.</p>
+<pre><code>$ ^C
+</code></pre>
+<p>Let&rsquo;s just go for it.</p>
+<pre><code>$ git init
+$ git add .
+$ git commit -m &quot;Migrate from Cloud9 to AWS Cloud9&quot;
+$ git push -f origin master
+</code></pre>
+<br>
+<p><svg class="center" width="84px" height="84px" xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 32 32"
+fill="black"></p>
+<path opacity=".25" d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4"/>
+<path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z">
+  <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 16 16"
+      to="360 16 16"
+      dur=".9s"
+      repeatCount="indefinite" />
+</path>
+</svg>
+<br>
+<p>Done!</p>
+<p>
+<figure>
+  <img src="https://api.netlify.com/api/v1/badges/e118c926-0caa-4618-a30b-899365e88718/deploy-status" alt="Netlify Status"  loading="lazy">
+  
+</figure>
+</p>
+<br>
+<h2 id="conclusion">Conclusion</h2>
+<p>Phew â€” <em>way</em> easier than I thought it would be. Only took ~7 min too.</p>
+<p>Not much more to say about that.</p>
+<hr>
+<p>Note:
+SVG loading icon built with love by me: Copy it. Paste it. Use it. Share it. But most importantly: have patience.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 32 32&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">fill</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">path</span> <span class="na">opacity</span><span class="o">=</span><span class="s">&#34;.25&#34;</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">animateTransform</span>
+</span></span><span class="line"><span class="cl">          <span class="na">attributeName</span><span class="o">=</span><span class="s">&#34;transform&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">type</span><span class="o">=</span><span class="s">&#34;rotate&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">from</span><span class="o">=</span><span class="s">&#34;0 16 16&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">to</span><span class="o">=</span><span class="s">&#34;360 16 16&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">dur</span><span class="o">=</span><span class="s">&#34;.9s&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">repeatCount</span><span class="o">=</span><span class="s">&#34;indefinite&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">path</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+</div>
+
+    </main>
+    
+
+    <footer role="contentinfo">
+        Designed, written, and built by Eric Treacy. This site collects no data or analytics.
+        He can be distracted via good ol' fashioned <a href="mailto:mail@etreacy.me">E-mail</a>.
+        <br/>
+        It's currently year 2025.️
+        <br/><br/>
+        <div>✺ </div> 
+    </footer>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const doodle = document.querySelector('css-doodle');
+            if (doodle) {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+                doodle.style.setProperty('--mx', x);
+                doodle.style.setProperty('--my', y);
+            }
+        });
+
+        document.body.addEventListener('click', function(e) {
+            if (e.target.tagName.toLowerCase() === 'css-doodle') {
+                e.target.update();
+            }
+        });
+    </script>
+</body>
+</html>
