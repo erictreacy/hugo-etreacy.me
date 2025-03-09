@@ -38,8 +38,6 @@
   status: "reading"
   date_read: ""
 
-
-
 - title: "The Upswing"
   author: "Robert D. Putnam"
   image: "/reading/The_Upswing_Putnam.png"
@@ -58,7 +56,7 @@
 
 - title: "Modern Man in Search of a Soul"
   author: "C. G. Jung"
-  image: "/reading/Man_search_soul.jpg"
+  image: "/reading/modern_man_in_search_of_a_soul.jpg"
   link: "https://www.goodreads.com/book/show/646175.Modern_Man_in_Search_of_a_Soul"
   alt: "Modern Man in Search of a Soul Book Cover"
   status: "read"
@@ -74,7 +72,7 @@
 
 - title: "The Good Heart"
   author: "Bstan-ʼdzin-rgya-mtsho, Dalai Lama XIV, Robert Kiely"
-  image: "/reading/The_Good_ Heart.jpg"
+  image: "/reading/The_Good_Heart.jpg"
   link: "https://www.goodreads.com/book/show/164937.The_Good_Heart"
   alt: "The Good Heart Book Cover"
   status: "to-read"
@@ -151,4 +149,3 @@
   alt: "Robert Bringhurst's book The Elements of Typographic Style"
   status: "read"
   date_read: "2024-01-15"
-
