@@ -1,0 +1,47 @@
+{{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    
+    {{/* Preload critical assets */}}
+    <link rel="preload" href="{{ $styles.RelPermalink }}" as="style">
+    {{ range .Site.Params.preloadFonts | default slice }}
+        <link rel="preload" href="{{ . }}" as="font" type="font/woff2" crossorigin>
+    {{ end }}
+    
+    {{/* Critical CSS */}}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" {{ printf "integrity=%q" $styles.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous">
+    
+    {{/* Prefetch and preconnect */}}
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    
+    {{/* Meta tags for SEO and social sharing */}}
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    
+    {{/* PWA support */}}
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
+    {{/* Security headers */}}
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    {{/* Performance optimization */}}
+    {{ if not .Site.IsServer }}
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "WebSite",
+                "name": "{{ .Site.Title }}",
+                "url": "{{ .Site.BaseURL }}"
+            }
+        </script>
+    {{ end }}
+</head>

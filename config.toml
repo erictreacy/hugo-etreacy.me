@@ -7,3 +7,24 @@ title = "Eric Treacy"
 
 [markup.goldmark.renderer]
   unsafe = true
+
+[minify]
+  minifyOutput = true
+  
+[build]
+  writeStats = true
+
+[imaging]
+  quality = 75
+  anchor = "Smart"
+  resampleFilter = "Lanczos"
+
+[caches]
+  [caches.getjson]
+    maxAge = "10h"
+  [caches.getcsv]
+    maxAge = "10h"
+  [caches.images]
+    maxAge = "100h"
+  [caches.assets]
+    maxAge = "100h"
