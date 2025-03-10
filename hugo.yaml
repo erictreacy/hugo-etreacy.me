@@ -3,6 +3,27 @@ languageCode: en-us
 title: Eric Treacy
 enableRobotsTXT: true
 
+minify:
+  minifyOutput: true
+  tdewolff:
+    html:
+      keepWhitespace: false
+      keepComments: false
+      keepQuotes: false
+      keepEndTags: false
+    css:
+      keepCSS2: false
+      precision: 0
+    js:
+      keepVarNames: false
+      precision: 0
+    json:
+      precision: 0
+    svg:
+      precision: 0
+    xml:
+      keepWhitespace: false
+
 module:
   mounts:
     - source: assets

@@ -9,43 +9,62 @@
     <meta name="author" content="{{ .Site.Params.author }}">
     <meta content=#fff name=theme-color>
     <link rel="icon" href="/favicon/favicon.png" type="image/x-icon" />
-    {{ $style := resources.Get "css/main.css" }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-    {{ $syntaxCss := resources.Get "css/syntax.css" }}
-    <link rel="stylesheet" href="{{ $syntaxCss.RelPermalink }}">
+    
+    {{/* Process CSS files */}}
+    {{ $styles := slice }}
+    {{ $mainStyle := resources.Get "css/main.css" | resources.Minify | resources.ExecuteAsTemplate . . }}
+    {{ $styles = $styles | append $mainStyle.Content }}
+
     {{ if .IsHome }}
-    {{ $homeCss := resources.Get "css/home.css" }}
-    <link rel="stylesheet" href="{{ $homeCss.RelPermalink }}">
+        {{ $homeStyle := resources.Get "css/home.css" | resources.Minify | resources.ExecuteAsTemplate . . }}
+        {{ $styles = $styles | append $homeStyle.Content }}
     {{ end }}
+    
+    {{ $syntaxStyle := resources.Get "css/syntax.css" | resources.Minify | resources.ExecuteAsTemplate . . }}
+    {{ $styles = $styles | append $syntaxStyle.Content }}
+
     {{ if eq .Section "writing" }}
-    {{ $writingCss := resources.Get "css/writing.css" }}
-    <link rel="stylesheet" href="{{ $writingCss.RelPermalink }}">
+        {{ $writingStyle := resources.Get "css/writing.css" | resources.Minify | resources.ExecuteAsTemplate . . }}
+        {{ $styles = $styles | append $writingStyle.Content }}
     {{ end }}
+    
     {{ if eq .Section "reading" }}
-    {{ $readingCss := resources.Get "css/reading.css" }}
-    <link rel="stylesheet" href="{{ $readingCss.RelPermalink }}">
+        {{ $readingStyle := resources.Get "css/reading.css" | resources.Minify | resources.ExecuteAsTemplate . . }}
+        {{ $styles = $styles | append $readingStyle.Content }}
     {{ end }}
+    
     {{ if eq .Section "projects" }}
-    {{ $projectsCss := resources.Get "css/projects.css" }}
-    <link rel="stylesheet" href="{{ $projectsCss.RelPermalink }}">
+        {{ $projectsStyle := resources.Get "css/projects.css" | resources.Minify | resources.ExecuteAsTemplate . . }}
+        {{ $styles = $styles | append $projectsStyle.Content }}
     {{ end }}
+    
     {{ if eq .Section "about" }}
-    {{ $aboutCss := resources.Get "css/about.css" }}
-    <link rel="stylesheet" href="{{ $aboutCss.RelPermalink }}">
+        {{ $aboutStyle := resources.Get "css/about.css" | resources.Minify | resources.ExecuteAsTemplate . . }}
+        {{ $styles = $styles | append $aboutStyle.Content }}
     {{ end }}
+    
     {{ if eq .Section "photos" }}
-    {{ $photosCss := resources.Get "css/photos.css" }}
-    <link rel="stylesheet" href="{{ $photosCss.RelPermalink }}">
+        {{ $photosStyle := resources.Get "css/photos.css" | resources.Minify | resources.ExecuteAsTemplate . . }}
+        {{ $styles = $styles | append $photosStyle.Content }}
     {{ end }}
+    
     {{ if eq .Kind "404" }}
-    {{ $notFoundCss := resources.Get "css/404.css" }}
-    <link rel="stylesheet" href="{{ $notFoundCss.RelPermalink }}">
+        {{ $notFoundStyle := resources.Get "css/404.css" | resources.Minify | resources.ExecuteAsTemplate . . }}
+        {{ $styles = $styles | append $notFoundStyle.Content }}
     {{ end }}
+
+    <style>{{ delimit $styles "" | safeCSS }}</style>
+    
+    {{/* Load JavaScript */}}
     {{ if .IsHome }}
-    <script src="https://unpkg.com/css-doodle@0.34.8/css-doodle.min.js"></script>
+        {{ with resources.Get "js/css-doodle.min.js" | resources.Minify }}
+            <script defer>{{ .Content | safeJS }}</script>
+        {{ end }}
     {{ end }}
-    {{ $copy := resources.Get "js/copy.js" }}
-    <script defer src="{{ $copy.RelPermalink }}"></script>
+    
+    {{ with resources.Get "js/copy.js" | resources.Minify }}
+        <script defer>{{ .Content | safeJS }}</script>
+    {{ end }}
 </head>
 <body{{ if .IsHome }} class="home"{{ end }}>
     {{ if not .IsHome }}
@@ -70,7 +89,6 @@
         
         <a href="/about/" class="text_decoration_none" title="About" aria-label="Read more">
             <css-doodle>
-                /* If you're reading this message your browser does not support web components! Try using Google Chrome or Safari for the full experience ; ) */
                 :doodle {
                     @grid: 7 / min(42vmin, 320px);
                     perspective-origin: calc(var(--mx, 50) * 1%) calc(var(--my, 50) * 1%);
@@ -110,23 +128,5 @@
         <br/><br/>
         <div>✺ </div> 
     </footer>
-
-    <script>
-        document.addEventListener('mousemove', (e) => {
-            const doodle = document.querySelector('css-doodle');
-            if (doodle) {
-                const x = (e.clientX / window.innerWidth) * 100;
-                const y = (e.clientY / window.innerHeight) * 100;
-                doodle.style.setProperty('--mx', x);
-                doodle.style.setProperty('--my', y);
-            }
-        });
-
-        document.body.addEventListener('click', function(e) {
-            if (e.target.tagName.toLowerCase() === 'css-doodle') {
-                e.target.update();
-            }
-        });
-    </script>
 </body>
 </html>

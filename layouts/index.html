@@ -1,4 +1,45 @@
 {{ define "main" }}
+<css-doodle grid="1x1">
+    :doodle {
+        @grid: 20 / 100vmax;
+        background: #0a0c27;
+    }
+    background: @pick(#00b8a9, #f8f3d4, #f6416c, #ffde7d);
+    margin: @r(20%);
+    transform: scale(@r(.1, 3));
+    
+    animation-name: explosion;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-duration: @r(2000ms, 4000ms);
+    animation-delay: @r(-4000ms);
+    
+    @keyframes explosion {
+        0% {
+            opacity: @r(.1, 1);
+            transform:
+                translate(
+                    @r(-50%, 50%),
+                    @r(-50%, 50%)
+                )
+                scale(@r(.1, 3))
+                rotate(@r(360deg))
+            ;
+        }
+        100% {
+            opacity: 0;
+            transform:
+                translate(
+                    @r(-50%, 50%),
+                    @r(-50%, 50%)
+                )
+                scale(@r(.1, 5))
+                rotate(@r(360deg))
+            ;
+        }
+    }
+</css-doodle>
 <article>
     {{ .Content }}
 </article>

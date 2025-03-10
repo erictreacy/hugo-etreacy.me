@@ -19,7 +19,7 @@
 
 /* Global Styles */
 body {
-    font: 1.1rem/1.6 var(--serif);
+    font: 1.1rem/1.6 var(--sans);
     color: var(--etreacy-ui-colors-text);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -126,19 +126,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Code */
-pre {
-  
-    padding: 1rem;
-    overflow-x: auto;
-    font-family: var(--mono);
-    font-size: 0.9rem;
-}
 
-code {
-    font-family: var(--mono);
-    font-size: 0.9rem;
-}
 
 /* Utility Classes */
 .right {
