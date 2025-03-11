@@ -1,9 +1,6 @@
 # Hugo executable and build files
 hugo.exe
 hugo.zip
-.hugo_build.lock
-public/
-resources/_gen/
 
 # Python virtual environment
 .venv/
@@ -14,6 +11,19 @@ jekyll_site/
 # Migration scripts
 migrate.ps1
 fix-dates.ps1
+
+# Hugo default output directory
+/public
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Hugo generated resources
+/resources/_gen/
+.hugo_build.lock
 
 # OS generated files
 .DS_Store

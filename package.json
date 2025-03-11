@@ -1,0 +1,18 @@
+{
+  "name": "hugo-etreacy",
+  "version": "1.0.0",
+  "description": "Personal website built with Hugo",
+  "scripts": {
+    "dev": "hugo server -D",
+    "build": "cross-env HUGO_ENVIRONMENT=production hugo --gc --minify",
+    "preview": "cross-env HUGO_ENVIRONMENT=production hugo server --gc --minify"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "autoprefixer": "^10.4.16",
+    "cross-env": "^7.0.3",
+    "cssnano": "^6.0.3",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^11.0.0"
+  }
+}
