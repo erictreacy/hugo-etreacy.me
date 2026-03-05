@@ -12,16 +12,19 @@
 }
 
 .p21 img {
-    width: 100%;
-    height: auto;
-    margin: 2rem 0;
-    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    float: left;
+    margin: 0 2rem 1rem 0;
 }
 
 .p21 h3 {
     font-weight: 600;
     font-size: 1.25rem;
     margin: 2rem 0 1rem;
+    clear: left;
 }
 
 .p21 p {
@@ -76,7 +79,9 @@
     }
 
     .p21 img {
-        margin: 1.5rem 0;
+        width: 150px;
+        height: 150px;
+        margin: 0 1rem 1rem 0;
     }
 
     .p21 h3 {

@@ -4,7 +4,7 @@ description: About Eric Treacy
 layout: single
 ---
 
-![Eric Treacy at Rocky Mountain National Park](/data/about/etreacy_optimized_bw.webp)
+![Eric Treacy at Rocky Mountain National Park](/data/about/climbheadshot.jpg)
 
 
 Hi, I'm Eric.
