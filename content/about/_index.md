@@ -7,36 +7,38 @@ layout: single
 ![Eric Treacy at Custard State Park, SD](/data/about/climbheadshot.jpg)
 
 
-Hi, I'm Eric.
+# Hi, I'm Eric.
 
-I'm a chemist currently living in Marquette, Michigan working at a chemical compounding lab. I used to build software and decided to take a break from the professional dev life to focus on a field that allows me more time with my family, friends and self. I love science and technology and this is my internet tendency.
+I'm a scientist and software developer living in Marquette, Michigan. I've spent my career moving between the bench and the keyboard — immunology research, compounding pharmacy, and software development — and I'm currently in Business Development at PCCA, where I get to bridge the science and business sides of pharmaceutical compounding.
 
-You can follow me on [GitHub](https://github.com/erictreacy) or read my [writing](/writing/) for extemporaneous output. I don't use social media all that much so, you would have a better chance finding me in the woods of Michigan's Upper Peninsula ... or just [email me](mailto:mail@etreacy.me) — I'd prefer that.
+I took a deliberate turn away from full-time dev work a while back to be more present with my kids and to live somewhere worth living. The Upper Peninsula delivered on that front. I still love building things with code, though, and this site is where that energy goes.
 
-### Experience
+You can find me on [GitHub](https://github.com/erictreacy) or read my [writing](/writing) for whatever's on my mind. I'm not much for social media — you're better off catching me on a trail somewhere or just emailing me.
 
-My knowledge ranges from bench science to software development:
+## Experience
 
-*From 2008 - 2015*, I oscillated my time between [National Jewish Health](https://www.nationaljewish.org/home) and [The University of Colorado — Anschutz Medical Campus](https://www.cuanschutz.edu/) researching the Life Sciences in Pediatric Rheumatology, Immunology & Cell Biology with [Philippa Marrack, PhD, FRS](https://www.nationaljewish.org/doctors-departments/providers/researchers/philippa-marrack) and [Leonard Dragone, MD, PhD](https://www.linkedin.com/in/leonard-dragone-94125474/), et al.
+My work spans bench science, pharmacy, and software:
 
-*From 2014 - current*, I work(ed) in Software Development for [The Texas Medical Association](https://www.texmed.org/), [Xeratec Corporation](https://xeratec.com/) and [Baby E's BBQ](https://babyesbbq.com) — and continue to create and contribute to OSS for kicks — plus, I like the community there — it keeps me up-to-date and most of the people are kind and encouraging.
+From 2008 to 2015, I researched immunology and cell biology at National Jewish Health and the University of Colorado — Anschutz Medical Campus, working in pediatric rheumatology and immunology with Philippa Marrack, PhD, FRS and Leonard Dragone, MD, PhD, among others.
 
-I also have a handful of [publications](/writing/2019-06-18-publications) that I have contributed to.
+I spent over a decade leading compounding pharmacy lab operations, most recently as a Lab Director in Michigan's Upper Peninsula.
 
-[Here's more](https://linkedin.com/in/erictreacy) if you're truly interested.
+On the software side, I've built production applications for organizations including The Texas Medical Association, Xeratec Corporation, and Baby E's BBQ — and I continue contributing to open source because I like the community and it keeps me sharp.
 
-### Personal
+I also have a handful of [publications](/writing/2019-06-18-publications.md) I've contributed to. [Here's more](/resume) if you're truly interested.
 
-Outside of work, I spend my time with my family and friends playing outdoors. I enjoy reading and keep a log of the recent [books](/reading/) I've enjoyed — I don't bother posting the ones that I didn't care for.
+## Personal
 
-I enjoy designing with code and programming — and this space is my creative outlet. I engineer with code using various web technologies: HTML, CSS, JavaScript, React, Ruby on Rails, ASP.Net, etc. — pretty much anything that will get me to where I want to be — I am always learning and discovering.
+Outside of work, I spend my time with my kids and friends, mostly outdoors — climbing, running, or just being in the woods. I keep a [log of books](/books) I've enjoyed and don't bother posting the ones I didn't.
 
-### Colophon
+I like designing with code and treat this space as a creative outlet. I work across the web stack — HTML, CSS, JavaScript, React, Ruby on Rails, ASP.NET, and whatever else gets me where I need to go. Always learning.
 
-This site is built with [Hugo](https://gohugo.io/). It is ad-free and doesn't use trackers. Therefore, it collects no data or analytics. This site also runs on [sustainable energy](https://www.websitecarbon.com/website/etreacy-me/).
+## Colophon
 
-My writing, photography, and the design of this website is [copyrighted](https://www.copyright.gov/help/faq/faq-general.html#mywork). Feel free to ask if you want to reuse any content beyond the bounds of [fair use](https://www.copyright.gov/fair-use/more-info.html).
+This site is built with [Hugo](https://gohugo.io). It is ad-free and doesn't use trackers — no data collection, no analytics. It also runs on sustainable energy.
 
-### Contact
+My writing, photography, and the design of this website are copyrighted. Feel free to ask if you want to reuse anything beyond the bounds of fair use.
+
+## Contact
 
 [mail@etreacy.me](mailto:mail@etreacy.me)
