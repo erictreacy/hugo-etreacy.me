@@ -1,10 +1,12 @@
 ---
-title: About
+title: 
 description: About Eric Treacy
 layout: single
 ---
+<br />
 
-![Eric Treacy climbing at Custard State Park in South Dakota, smiling at the camera with rock formations visible in the background](/data/about/SDClimb.jpg)
+
+![Eric Treacy climbing at Custard State Park in South Dakota, smiling at the camera with rock formations visible in the background](/about/SDClimb.jpg)
 
 
 # Hi, I'm Eric.

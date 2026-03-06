@@ -52,7 +52,7 @@
 
 /* Global Styles */
 body {
-    font: 1rem/1.6 var(--serif);
+    font: 1rem/1.4 var(--serif);
     color: var(--theme-ui-colors-text);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -62,7 +62,7 @@ body {
     max-width: 640px;
     padding: 0 1rem;
     letter-spacing: 0.02px;
-    hyphens: auto;
+ 
 }
 
 @media (max-width: 600px) {
